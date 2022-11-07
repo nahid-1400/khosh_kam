@@ -37,7 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'malile_khosh_kam'
+    # khosh kam apps
+    'malile_khosh_kam',
+    'comment_khosh_kam',
+
 ]
 
 MIDDLEWARE = [
