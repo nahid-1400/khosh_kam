@@ -1,12 +1,6 @@
 from django.db import models
 from django.utils import timezone
 
-STATUS_CHOICES = (
-    ('d', ' پیش نویس'),
-    ('p', 'منتشر شده'),
-    ('i', 'در حال بررسی'),
-    ('b', 'برگشت داده شده'),
-)
 class CateGory(models.Model):
     title = models.CharField(max_length=200, verbose_name='عنوان دسته بندی')
     slug = models.SlugField(max_length=100, unique=True, verbose_name='عنوان دسته بندی در url')
@@ -33,10 +27,23 @@ class IPAddress(models.Model):
     def __str__(self):
         return self.ip
 
+
+STATUS_CHOICES = (
+    ('d', ' پیش نویس'),
+    ('p', 'منتشر شده'),
+    ('i', 'در حال بررسی'),
+    ('b', 'برگشت داده شده'),
+)
+
+class MalileManager(models.Manager):
+    def active_malile(self):
+        return self.filter(status='p', existing=True)
+
 class Malile(models.Model):
     title = models.CharField(max_length=500, default=None, verbose_name='عنوان')
     image = models.ImageField(upload_to='image_malile', verbose_name='تصویر')
     descriptions = models.TextField(verbose_name='توضیحات')
+    price = models.IntegerField(max_length=1000000, default=0, verbose_name='قیمت')
     height = models.IntegerField(default=0, verbose_name='طول')
     width = models.IntegerField(default=0, verbose_name='عرض')
     weight = models.IntegerField(default=0, verbose_name='وزن')
@@ -46,6 +53,9 @@ class Malile(models.Model):
     updated = models.DateTimeField(auto_now=True, verbose_name='اخرین به روز رسانی')
     status = models.CharField(max_length=1, choices=STATUS_CHOICES, verbose_name='وضعیت')
     is_special = models.BooleanField(default=False, verbose_name='محصول ویژه')
+    existing = models.BooleanField(default=True, verbose_name='موجود')
+
+    objects = MalileManager()
 
     class Meta:
         verbose_name = 'ملیله'
