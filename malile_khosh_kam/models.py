@@ -21,7 +21,7 @@ class IPAddress(models.Model):
     ip = models.GenericIPAddressField(verbose_name='آی پی آدرس')
 
     class Meta:
-        verbose_name = 'ی پی آدرس کاربران'
+        verbose_name = 'آی پی آدرس کاربر'
         verbose_name_plural = 'آی پی آدرس کاربران'
 
     def __str__(self):
@@ -39,6 +39,10 @@ class MalileManager(models.Manager):
     def active_malile(self):
         return self.filter(status='p', existing=True)
 
+    def published_malile(self):
+        return self.filter(status='p')
+
+
 class Malile(models.Model):
     title = models.CharField(max_length=500, default=None, verbose_name='عنوان')
     image = models.ImageField(upload_to='image_malile', verbose_name='تصویر')
@@ -54,6 +58,7 @@ class Malile(models.Model):
     status = models.CharField(max_length=1, choices=STATUS_CHOICES, verbose_name='وضعیت')
     is_special = models.BooleanField(default=False, verbose_name='محصول ویژه')
     existing = models.BooleanField(default=True, verbose_name='موجود')
+    hits = models.ManyToManyField(IPAddress, blank=True, related_name='hits', verbose_name='بازدیدها')
 
     objects = MalileManager()
 

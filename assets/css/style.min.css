@@ -11440,6 +11440,8 @@ body.open .closeMask {
     justify-content: space-between
 }
 
+
+
 @media only screen and (max-width: 575px) {
     .pro-desc-commnet-area .comment-list .comment .commenter {
         display: block
@@ -13343,9 +13345,9 @@ body.open .closeMask {
     margin-right: 20px
 }
 
-.comment-list .comment .single-comment .comment-img img {
-    border-radius: 100%;
-    width: 100%
+.comment-list .comment .single-comment .comment-img-reply img {
+    border-radius: 60%;
+    width: 60%
 }
 
 .comment-list .comment .commenter {

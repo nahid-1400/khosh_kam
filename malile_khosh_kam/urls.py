@@ -14,9 +14,11 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.urls import path
-from malile_khosh_kam.views import MalileDetail
+from malile_khosh_kam.views import MalileDetail, AllMalile
 
 app_name = 'malile_khosh_kam'
+
 urlpatterns = [
-    path('<id>/', MalileDetail.as_view(), name='malile_detail'),
+    path('malile/<malile_id>/', MalileDetail.as_view(), name='malile_detail'),
+    path('maliles', AllMalile.as_view(), name='all-maliles'),
 ]

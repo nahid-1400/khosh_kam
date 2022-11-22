@@ -9666,17 +9666,6 @@ body.open .closeMask {
     border: none
 }
 
-.color-variant li.color-extra-01 span .color {
-    background: #ff8666
-}
-
-.color-variant li.color-extra-01.active span {
-    border-color: #ff8666
-}
-
-.color-variant li.color-extra-02 span .color {
-    background: #ff497c
-}
 
 .color-variant li.color-extra-02.active span {
     border-color: #ff497c
@@ -11450,6 +11439,8 @@ body.open .closeMask {
     align-items: center;
     justify-content: space-between
 }
+
+
 
 @media only screen and (max-width: 575px) {
     .pro-desc-commnet-area .comment-list .comment .commenter {
@@ -13354,9 +13345,9 @@ body.open .closeMask {
     margin-right: 20px
 }
 
-.comment-list .comment .single-comment .comment-img img {
-    border-radius: 100%;
-    width: 100%
+.comment-list .comment .single-comment .comment-img-reply img {
+    border-radius: 60%;
+    width: 60%
 }
 
 .comment-list .comment .commenter {
@@ -20055,3 +20046,4 @@ select,
 }
 
 /*# sourceMappingURL=../maps/style.min.css.map */
+
