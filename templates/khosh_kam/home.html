@@ -1,0 +1,1806 @@
+{% extends 'khosh_kam/base/base.html' %}
+{% load static %}
+{% load render_partial %}
+{% block title_khosh_kam %}
+خانه | ملیله خوش کام
+{% endblock title_khosh_kam %}
+
+{% block style_header_base %}
+    <link rel="stylesheet" href="{% static 'css/vendor/bootstrap.rtl.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/vendor/font-awesome.css' %}">
+    <link rel="stylesheet" href="{% static 'css/vendor/flaticon/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'css/vendor/slick.css' %}">
+    <link rel="stylesheet" href="{% static 'css/vendor/slick-theme.css' %}">
+    <link rel="stylesheet" href="{% static 'css/vendor/jquery-ui.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/vendor/sal.css' %}">
+    <link rel="stylesheet" href="{% static 'css/vendor/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'css/vendor/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.min.css' %}">
+{% endblock style_header_base %}
+
+{% block header_khosh_kam %}
+    {% render_partial 'header_base' %}
+{% endblock header_khosh_kam %}
+
+{% block main_khosh_kam %}
+        <!-- Start Slider Area -->
+        <div class="axil-main-slider-area main-slider-style-7 bg_image--8">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-sm-8">
+                        <div class="main-slider-content">
+                            <span class="subtitle"><i class="fas fa-fire"></i>جواهرات داغ و زیبا</span>
+                            <h1  style="color: wheat;">کالکشن انحصاری</h1>
+                            <p> زیباترین جواهرات ملیله کاری شده با عیار 999 </p>
+                            <div class="shop-btn">
+                                <a href="shop.html" class="axil-btn btn-bg-secondary right-icon">جزئیات بیشتر <i
+                                        class="fal fa-long-arrow-left"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Slider Area -->
+
+        <!-- Start Axil Product Poster Area  -->
+        <div class="axil-poster axil-section-gap pb--0">
+            <div class="container">
+                <div class="row g-lg-5 g-4">
+                    <div class="col-lg-6">
+                        <div class="single-poster">
+                            <a href="shop.html">
+                                <img src="{% static 'images/product/poster/poster-malile-1.jpg' %}" alt="eTrade promotion poster" style="height: 450px;width: 600px">
+                                <div class="poster-content">
+                                    <div class="inner">
+                                        <h3 class="title">برترین  <br> انگشتر ها</h3>
+                                        <span class="sub-title">کالکشن <i class="fal fa-long-arrow-left"></i></span>
+                                    </div>
+                                </div>
+                                <!-- End .poster-content -->
+                            </a>
+                        </div>
+                        <!-- End .single-poster -->
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="single-poster">
+                            <a href="shop-sidebar.html">
+                                <img src="{% static 'images/product/poster/poster-image-3.jpg' %}" style="height: 450px;width: 600px" alt="eTrade promotion poster">
+                                <div class="poster-content content-left">
+                                    <div class="inner">
+                                        <span class="sub-title">عیار 999</span>
+                                        <h3 class="title">دریافت گردنبند <br> انحصاری</h3>
+                                    </div>
+                                </div>
+                                <!-- End .poster-content -->
+                            </a>
+                        </div>
+                        <!-- End .single-poster -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Axil Product Poster Area  -->
+
+        <!-- Start New Arrivals Product Area  -->
+        <div class="axil-new-arrivals-product-area fullwidth-container bg-color-white axil-section-gap pb--0">
+            <div class="container ml--xxl-0">
+                <div class="product-area pb--50">
+                    <div class="section-title-wrapper">
+                        <h2 class="title">محصولات جدید</h2>
+                    </div>
+  <div class="new-arrivals-product-activation slick-layout-wrapper--15 axil-slick-arrow  arrow-top-slide">
+                    {% for malile in new_malile %}
+                        {% include 'khosh_kam/base/single_product_malile.html' %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <!-- End New Arrivals Product Area  -->
+
+        <!-- Start Best Sellers Product Area  -->
+        <div class="axil-best-seller-product-area bg-color-white axil-section-gap pb--0">
+            <div class="container">
+                <div class="product-area pb--50">
+                    <div class="section-title-wrapper">
+                        <span class="title-highlighter highlighter-primary"> <i class="far fa-shopping-basket"></i>این
+                            ماه</span>
+                        <h2 class="title">پرفروش ترین ها</h2>
+                    </div>
+                    <div
+                        class="new-arrivals-product-activation-2 slick-layout-wrapper--15 axil-slick-arrow arrow-top-slide product-slide-mobile">
+                        <div class="slick-single-layout">
+                            <div class="axil-product product-style-three">
+                                <div class="thumbnail">
+                                    <a href="single-product.html">
+                                        <img data-sal="fade" data-sal-delay="100" data-sal-duration="1500"
+                                            src="{% static 'images/product/jewellery/product-6.png' %}" alt="Product Images">
+                                    </a>
+                                    <div class="product-hover-action">
+                                        <ul class="cart-action">
+                                            <li class="wishlist"><a href="wishlist.html"><i
+                                                        class="far fa-heart"></i></a></li>
+                                            <li class="select-option"><a href="cart.html">اضافه به سبد خرید</a></li>
+                                            <li class="quickview"><a href="#" data-bs-toggle="modal"
+                                                    data-bs-target="#quick-view-modal"><i class="far fa-eye"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="product-content">
+                                    <div class="inner">
+                                        <div class="product-rating">
+                                            <span class="icon">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </span>
+                                            <span class="rating-number">(18)</span>
+                                        </div>
+                                        <h5 class="title"><a href="single-product.html">گردنبند الماس</a></h5>
+                                        <div class="product-price-variant">
+                                            <span class="price current-price">30.000</span>
+                                            <span class="price old-price">50.000</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End .slick-single-layout -->
+                        <div class="slick-single-layout">
+                            <div class="axil-product product-style-three">
+                                <div class="thumbnail">
+                                    <a href="single-product.html">
+                                        <img data-sal="fade" data-sal-delay="200" data-sal-duration="1500"
+                                            src="{% static 'images/product/jewellery/product-7.png' %}" alt="Product Images">
+                                    </a>
+                                    <div class="product-hover-action">
+                                        <ul class="cart-action">
+                                            <li class="wishlist"><a href="wishlist.html"><i
+                                                        class="far fa-heart"></i></a></li>
+                                            <li class="select-option"><a href="cart.html">اضافه به سبد خرید</a></li>
+                                            <li class="quickview"><a href="#" data-bs-toggle="modal"
+                                                    data-bs-target="#quick-view-modal"><i class="far fa-eye"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="product-content">
+                                    <div class="inner">
+                                        <div class="product-rating">
+                                            <span class="icon">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="far fa-star"></i>
+                                            </span>
+                                            <span class="rating-number">(24)</span>
+                                        </div>
+                                        <h5 class="title"><a href="single-product.html">گردنبند الماس</a></h5>
+                                        <div class="product-price-variant">
+                                            <span class="price current-price">80.000</span>
+                                            <span class="price old-price">100.000</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End .slick-single-layout -->
+                        <div class="slick-single-layout">
+                            <div class="axil-product product-style-three">
+                                <div class="thumbnail">
+                                    <a href="single-product.html">
+                                        <img data-sal="fade" data-sal-delay="300" data-sal-duration="1500"
+                                            src="{% static 'images/product/jewellery/product-8.png' %}" alt="Product Images">
+                                    </a>
+                                    <div class="product-hover-action">
+                                        <ul class="cart-action">
+                                            <li class="wishlist"><a href="wishlist.html"><i
+                                                        class="far fa-heart"></i></a></li>
+                                            <li class="select-option"><a href="cart.html">اضافه به سبد خرید</a></li>
+                                            <li class="quickview"><a href="#" data-bs-toggle="modal"
+                                                    data-bs-target="#quick-view-modal"><i class="far fa-eye"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="product-content">
+                                    <div class="inner">
+                                        <div class="product-rating">
+                                            <span class="icon">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="far fa-star"></i>
+                                            </span>
+                                            <span class="rating-number">(34)</span>
+                                        </div>
+                                        <h5 class="title"><a href="single-product.html">گوشواره گردنبند الماس</a></h5>
+                                        <div class="product-price-variant">
+                                            <span class="price current-price">40.000</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End .slick-single-layout -->
+                        <div class="slick-single-layout">
+                            <div class="axil-product product-style-three">
+                                <div class="thumbnail">
+                                    <a href="single-product.html">
+                                        <img data-sal="fade" data-sal-delay="400" data-sal-duration="1500"
+                                            src="{% static 'images/product/jewellery/product-9.png' %}" alt="Product Images">
+                                    </a>
+                                    <div class="product-hover-action">
+                                        <ul class="cart-action">
+                                            <li class="wishlist"><a href="wishlist.html"><i
+                                                        class="far fa-heart"></i></a></li>
+                                            <li class="select-option"><a href="cart.html">اضافه به سبد خرید</a></li>
+                                            <li class="quickview"><a href="#" data-bs-toggle="modal"
+                                                    data-bs-target="#quick-view-modal"><i class="far fa-eye"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="product-content">
+                                    <div class="inner">
+                                        <div class="product-rating">
+                                            <span class="icon">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </span>
+                                            <span class="rating-number">(14)</span>
+                                        </div>
+                                        <h5 class="title"><a href="single-product.html">گوشواره الماس</a></h5>
+                                        <div class="product-price-variant">
+                                            <span class="price current-price">30.000</span>
+                                            <span class="price old-price">35.000</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End .slick-single-layout -->
+                        <div class="slick-single-layout">
+                            <div class="axil-product product-style-three">
+                                <div class="thumbnail">
+                                    <a href="single-product.html">
+                                        <img data-sal="fade" data-sal-delay="100" data-sal-duration="1500"
+                                            src="{% static 'images/product/jewellery/product-10.png' %}" alt="Product Images">
+                                    </a>
+                                    <div class="product-hover-action">
+                                        <ul class="cart-action">
+                                            <li class="wishlist"><a href="wishlist.html"><i
+                                                        class="far fa-heart"></i></a></li>
+                                            <li class="select-option"><a href="cart.html">اضافه به سبد خرید</a></li>
+                                            <li class="quickview"><a href="#" data-bs-toggle="modal"
+                                                    data-bs-target="#quick-view-modal"><i class="far fa-eye"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="product-content">
+                                    <div class="inner">
+                                        <div class="product-rating">
+                                            <span class="icon">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </span>
+                                            <span class="rating-number">(11)</span>
+                                        </div>
+                                        <h5 class="title"><a href="single-product.html">دستبند الماس</a></h5>
+                                        <div class="product-price-variant">
+                                            <span class="price current-price">40.000</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End .slick-single-layout -->
+                        <div class="slick-single-layout">
+                            <div class="axil-product product-style-three">
+                                <div class="thumbnail">
+                                    <a href="single-product.html">
+                                        <img data-sal="fade" data-sal-delay="200" data-sal-duration="1500"
+                                            src="{% static 'images/product/jewellery/product-11.png' %}" alt="Product Images">
+                                    </a>
+                                    <div class="product-hover-action">
+                                        <ul class="cart-action">
+                                            <li class="wishlist"><a href="wishlist.html"><i
+                                                        class="far fa-heart"></i></a></li>
+                                            <li class="select-option"><a href="cart.html">اضافه به سبد خرید</a></li>
+                                            <li class="quickview"><a href="#" data-bs-toggle="modal"
+                                                    data-bs-target="#quick-view-modal"><i class="far fa-eye"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="product-content">
+                                    <div class="inner">
+                                        <div class="product-rating">
+                                            <span class="icon">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="far fa-star"></i>
+                                            </span>
+                                            <span class="rating-number">(14)</span>
+                                        </div>
+                                        <h5 class="title"><a href="single-product.html">قفسه الماس</a></h5>
+                                        <div class="product-price-variant">
+                                            <span class="price current-price">80.000</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End .slick-single-layout -->
+                        <div class="slick-single-layout">
+                            <div class="axil-product product-style-three">
+                                <div class="thumbnail">
+                                    <a href="single-product.html">
+                                        <img data-sal="fade" data-sal-delay="300" data-sal-duration="1500"
+                                            src="{% static 'images/product/jewellery/product-12.png' %}" alt="Product Images">
+                                    </a>
+                                    <div class="product-hover-action">
+                                        <ul class="cart-action">
+                                            <li class="wishlist"><a href="wishlist.html"><i
+                                                        class="far fa-heart"></i></a></li>
+                                            <li class="select-option"><a href="cart.html">اضافه به سبد خرید</a></li>
+                                            <li class="quickview"><a href="#" data-bs-toggle="modal"
+                                                    data-bs-target="#quick-view-modal"><i class="far fa-eye"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="product-content">
+                                    <div class="inner">
+                                        <div class="product-rating">
+                                            <span class="icon">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="far fa-star"></i>
+                                            </span>
+                                            <span class="rating-number">(24)</span>
+                                        </div>
+                                        <h5 class="title"><a href="single-product.html">کت جین مشکی</a></h5>
+                                        <div class="product-price-variant">
+                                            <span class="price current-price">20.000</span>
+                                            <span class="price old-price">40.000</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End .slick-single-layout -->
+                        <div class="slick-single-layout">
+                            <div class="axil-product product-style-three">
+                                <div class="thumbnail">
+                                    <a href="single-product.html">
+                                        <img data-sal="fade" data-sal-delay="400" data-sal-duration="1500"
+                                            src="{% static 'images/product/jewellery/product-13.png' %}" alt="Product Images">
+                                    </a>
+                                    <div class="product-hover-action">
+                                        <ul class="cart-action">
+                                            <li class="wishlist"><a href="wishlist.html"><i
+                                                        class="far fa-heart"></i></a></li>
+                                            <li class="select-option"><a href="cart.html">اضافه به سبد خرید</a></li>
+                                            <li class="quickview"><a href="#" data-bs-toggle="modal"
+                                                    data-bs-target="#quick-view-modal"><i class="far fa-eye"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="product-content">
+                                    <div class="inner">
+                                        <div class="product-rating">
+                                            <span class="icon">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="far fa-star"></i>
+                                            </span>
+                                            <span class="rating-number">(24)</span>
+                                        </div>
+                                        <h5 class="title"><a href="single-product.html">دستبند الماس</a></h5>
+                                        <div class="product-price-variant">
+                                            <span class="price current-price">30.000</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End .slick-single-layout -->
+                        <div class="slick-single-layout">
+                            <div class="axil-product product-style-three">
+                                <div class="thumbnail">
+                                    <a href="single-product.html">
+                                        <img data-sal="fade" data-sal-delay="100" data-sal-duration="1500"
+                                            src="{% static 'images/product/jewellery/product-14.png' %}" alt="Product Images">
+                                    </a>
+                                    <div class="product-hover-action">
+                                        <ul class="cart-action">
+                                            <li class="wishlist"><a href="wishlist.html"><i
+                                                        class="far fa-heart"></i></a></li>
+                                            <li class="select-option"><a href="cart.html">اضافه به سبد خرید</a></li>
+                                            <li class="quickview"><a href="#" data-bs-toggle="modal"
+                                                    data-bs-target="#quick-view-modal"><i class="far fa-eye"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="product-content">
+                                    <div class="inner">
+                                        <div class="product-rating">
+                                            <span class="icon">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </span>
+                                            <span class="rating-number">(64)</span>
+                                        </div>
+                                        <h5 class="title"><a href="single-product.html">حلقه الماس</a></h5>
+                                        <div class="product-price-variant">
+                                            <span class="price current-price">40.000</span>
+                                            <span class="price old-price">60.000</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End .slick-single-layout -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End  Best Sellers Product Area  -->
+
+        <!-- Start Categorie Area  -->
+        <div class="axil-categorie-area bg-color-white axil-section-gapcommon">
+            <div class="container">
+                <div class="section-title-wrapper">
+                    <span class="title-highlighter highlighter-primary"> <i class="far fa-shopping-basket"></i> دسته
+                        بندی ها</span>
+                    <h2 class="title">مرور بر اساس دسته بندی</h2>
+                </div>
+                <div class="categrie-product-activation slick-layout-wrapper--15 axil-slick-arrow  arrow-top-slide">
+                    <div class="slick-single-layout">
+                        <div class="categrie-product" data-sal="zoom-out" data-sal-delay="200" data-sal-duration="500">
+                            <a href="#">
+                                <img class="img-fluid" src="{% static 'images/product/categories/jewelry-2.png' %}"
+                                    alt="product categorie">
+                                <h6 class="cat-title">بارت</h6>
+                            </a>
+                        </div>
+                        <!-- End .categrie-product -->
+                    </div>
+                    <!-- End .slick-single-layout -->
+                    <div class="slick-single-layout">
+                        <div class="categrie-product" data-sal="zoom-out" data-sal-delay="300" data-sal-duration="500">
+                            <a href="#">
+                                <img class="img-fluid" src="{% static 'images/product/categories/jewelry-3.png' %}"
+                                    alt="product categorie">
+                                <h6 class="cat-title">فلزات پایه</h6>
+                            </a>
+                        </div>
+                        <!-- End .categrie-product -->
+                    </div>
+                    <!-- End .slick-single-layout -->
+                    <div class="slick-single-layout">
+                        <div class="categrie-product" data-sal="zoom-out" data-sal-delay="400" data-sal-duration="500">
+                            <a href="#">
+                                <img class="img-fluid" src="{% static 'images/product/categories/jewelry-4.png' %}"
+                                    alt="product categorie">
+                                <h6 class="cat-title">جواهرات املاک</h6>
+                            </a>
+                        </div>
+                        <!-- End .categrie-product -->
+                    </div>
+                    <!-- End .slick-single-layout -->
+                    <div class="slick-single-layout">
+                        <div class="categrie-product" data-sal="zoom-out" data-sal-delay="500" data-sal-duration="500">
+                            <a href="#">
+                                <img class="img-fluid" src="{% static 'images/product/categories/jewelry-5.png' %}"
+                                    alt="product categorie">
+                                <h6 class="cat-title">فویل بک ها</h6>
+                            </a>
+                        </div>
+                        <!-- End .categrie-product -->
+                    </div>
+                    <!-- End .slick-single-layout -->
+                    <div class="slick-single-layout">
+                        <div class="categrie-product" data-sal="zoom-out" data-sal-delay="600" data-sal-duration="500">
+                            <a href="#">
+                                <img class="img-fluid" src="{% static 'images/product/categories/jewelry-6.png' %}"
+                                    alt="product categorie">
+                                <h6 class="cat-title">کالابوبو</h6>
+                            </a>
+                        </div>
+                        <!-- End .categrie-product -->
+                    </div>
+                    <!-- End .slick-single-layout -->
+                    <div class="slick-single-layout">
+                        <div class="categrie-product" data-sal="zoom-out" data-sal-delay="700" data-sal-duration="500">
+                            <a href="#">
+                                <img class="img-fluid" src="{% static 'images/product/categories/jewelry-7.png' %}"
+                                    alt="product categorie">
+                                <h6 class="cat-title">مدال</h6>
+                            </a>
+                        </div>
+                        <!-- End .categrie-product -->
+                    </div>
+                    <!-- End .slick-single-layout -->
+                    <div class="slick-single-layout">
+                        <div class="categrie-product" data-sal="zoom-out" data-sal-delay="700" data-sal-duration="500">
+                            <a href="#">
+                                <img class="img-fluid" src="{% static 'images/product/categories/jewelry-8.png' %}"
+                                    alt="product categorie">
+                                <h6 class="cat-title">انگشتر ناوارات</h6>
+                            </a>
+                        </div>
+                        <!-- End .categrie-product -->
+                    </div>
+                    <div class="slick-single-layout">
+                        <div class="categrie-product" data-sal="zoom-out" data-sal-delay="100" data-sal-duration="500">
+                            <a href="#">
+                                <img class="img-fluid" src="{% static 'images/product/categories/jewelry-1.png' %}"
+                                    alt="product categorie">
+                                <h6 class="cat-title">پابند</h6>
+                            </a>
+                        </div>
+                        <!-- End .categrie-product -->
+                    </div>
+                    <!-- End .slick-single-layout -->
+                    <!-- End .slick-single-layout -->
+                    <div class="slick-single-layout">
+                        <div class="categrie-product">
+                            <a href="#">
+                                <img class="img-fluid" src="{% static 'images/product/categories/jewelry-9.png' %}"
+                                    alt="product categorie">
+                                <h6 class="cat-title">پین های تعهد</h6>
+                            </a>
+                        </div>
+                        <!-- End .categrie-product -->
+                    </div>
+                    <!-- End .slick-single-layout -->
+                    <div class="slick-single-layout">
+                        <div class="categrie-product">
+                            <a href="#">
+                                <img class="img-fluid" src="{% static 'images/product/categories/jewelry-10.png' %}"
+                                       alt="product categorie" >
+                                <h6 class="cat-title">جواهرات نماز</h6>
+                            </a>
+                        </div>
+                        <!-- End .categrie-product -->
+                    </div>
+                    <!-- End .slick-single-layout -->
+                    <div class="slick-single-layout">
+                        <div class="categrie-product">
+                            <a href="#">
+                                <img class="img-fluid" src="{% static 'images/product/categories/jewelry-11.png' %}"
+                                    alt="product categorie">
+                                <h6 class="cat-title">دستبند </h6>
+                            </a>
+                        </div>
+                        <!-- End .categrie-product -->
+                    </div>
+                    <!-- End .slick-single-layout -->
+                    <div class="slick-single-layout">
+                        <div class="categrie-product">
+                            <a href="#">
+                                <img class="img-fluid" src="{% static 'images/product/categories/jewelry-12.png' %}"
+                                    alt="product categorie">
+                                <h6 class="cat-title">پین های تعهد</h6>
+                            </a>
+                        </div>
+                        <!-- End .categrie-product -->
+                    </div>
+                    <!-- End .slick-single-layout -->
+                    <div class="slick-single-layout">
+                        <div class="categrie-product">
+                            <a href="#">
+                                <img class="img-fluid" src="{% static 'images/product/categories/jewelry-13.png' %}"
+                                    alt="product categorie">
+                                <h6 class="cat-title">مدال</h6>
+                            </a>
+                        </div>
+                        <!-- End .categrie-product -->
+                    </div>
+                    <!-- End .slick-single-layout -->
+                </div>
+            </div>
+        </div>
+        <!-- End Categorie Area  -->
+
+        <!-- Start Testimonila Area  -->
+        <div class="axil-testimoial-area axil-section-gap bg-vista-white">
+            <div class="container">
+                <div class="section-title-wrapper">
+                    <span class="title-highlighter highlighter-secondary"> <i class="fal fa-quote-left"></i>نظرات</span>
+                    <h2 class="title">نظرات کاربران</h2>
+                </div>
+                <!-- End .section-title -->
+                <div
+                    class="testimonial-slick-activation testimonial-style-one-wrapper slick-layout-wrapper--20 axil-slick-arrow arrow-top-slide">
+                    <div class="slick-single-layout testimonial-style-one">
+                        <div class="review-speech">
+                            <p>“ لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان
+                                گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که “</p>
+                        </div>
+                        <div class="media">
+                            <div class="thumbnail">
+                                <img src="{% static 'images/testimonial/image-1.png' %}" alt="testimonial image">
+                            </div>
+                            <div class="media-body">
+                                <span class="designation">مدیر ایدیا</span>
+                                <h6 class="title">احمد احمدی</h6>
+                            </div>
+                        </div>
+                        <!-- End .thumbnail -->
+                    </div>
+                    <!-- End .slick-single-layout -->
+                    <div class="slick-single-layout testimonial-style-one">
+                        <div class="review-speech">
+                            <p>“ لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان
+                                گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که “</p>
+                        </div>
+                        <div class="media">
+                            <div class="thumbnail">
+                                <img src="{% static 'images/testimonial/image-2.png' %}" alt="testimonial image">
+                            </div>
+                            <div class="media-body">
+                                <span class="designation">مدیر ایدیا</span>
+                                <h6 class="title">احمد احمدی</h6>
+                            </div>
+                        </div>
+                        <!-- End .thumbnail -->
+                    </div>
+                    <!-- End .slick-single-layout -->
+                    <div class="slick-single-layout testimonial-style-one">
+                        <div class="review-speech">
+                            <p>“ لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان
+                                گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که “</p>
+                        </div>
+                        <div class="media">
+                            <div class="thumbnail">
+                                <img src="{% static 'images/testimonial/image-3.png' %}" alt="testimonial image">
+                            </div>
+                            <div class="media-body">
+                                <span class="designation">مدیر ایدیا</span>
+                                <h6 class="title">احمد احمدی</h6>
+                            </div>
+                        </div>
+                        <!-- End .thumbnail -->
+                    </div>
+                    <!-- End .slick-single-layout -->
+                    <div class="slick-single-layout testimonial-style-one">
+                        <div class="review-speech">
+                            <p>“ لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان
+                                گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که “</p>
+                        </div>
+                        <div class="media">
+                            <div class="thumbnail">
+                                <img src="{% static 'images/testimonial/image-2.png' %}" alt="testimonial image">
+                            </div>
+                            <div class="media-body">
+                                <span class="designation">مدیر ایدیا</span>
+                                <h6 class="title">احمد احمدی</h6>
+                            </div>
+                        </div>
+                        <!-- End .thumbnail -->
+                    </div>
+                    <!-- End .slick-single-layout -->
+
+                </div>
+            </div>
+        </div>
+        <!-- End Testimonila Area  -->
+
+        <!-- Start Expolre Product Area  -->
+        <div class="axil-product-area bg-color-white axil-section-gap pb--0">
+            <div class="container">
+                <div class="product-area pb--80">
+                    <div class="section-title-wrapper">
+                        <span class="title-highlighter highlighter-primary"><i class="far fa-shopping-basket"></i>
+                            محصولات ما</span>
+                        <h2 class="title">محصولات ما را کاوش کنید</h2>
+                    </div>
+                    <div class="row row--15">
+                        <div class="col-xl-3 col-lg-4 col-sm-6 col-12 mb--30">
+                            <div class="axil-product product-style-one">
+                                <div class="thumbnail">
+                                    <a href="single-product.html">
+                                        <img data-sal="fade" data-sal-delay="100" data-sal-duration="1500"
+                                            src="{% static 'images/product/jewellery/product-11.png' %}" alt="Product Images">
+                                    </a>
+                                    <div class="label-block label-right">
+                                        <div class="product-badget">20% تخفیف</div>
+                                    </div>
+                                    <div class="product-hover-action">
+                                        <ul class="cart-action">
+                                            <li class="wishlist"><a href="wishlist.html"><i
+                                                        class="far fa-heart"></i></a></li>
+                                            <li class="select-option"><a href="cart.html">اضافه به سبد خرید</a></li>
+                                            <li class="quickview"><a href="#" data-bs-toggle="modal"
+                                                    data-bs-target="#quick-view-modal"><i class="far fa-eye"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="product-content">
+                                    <div class="inner">
+                                        <h5 class="title"><a href="single-product.html">قفسه الماس</a></h5>
+                                        <div class="product-price-variant">
+                                            <span class="price old-price">50.000</span>
+                                            <span class="price current-price">40.000</span>
+                                        </div>
+                                        <div class="color-variant-wrapper">
+                                            <ul class="color-variant">
+                                                <li class="color-extra-01 active"><span><span
+                                                            class="color"></span></span>
+                                                </li>
+                                                <li class="color-extra-02"><span><span class="color"></span></span>
+                                                </li>
+                                                <li class="color-extra-03"><span><span class="color"></span></span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Single Product  -->
+                        <div class="col-xl-3 col-lg-4 col-sm-6 col-12 mb--30">
+                            <div class="axil-product product-style-one">
+                                <div class="thumbnail">
+                                    <a href="single-product.html">
+                                        <img data-sal="fade" data-sal-delay="200" data-sal-duration="1500"
+                                            src="{% static 'images/product/jewellery/product-12.png' %}" alt="Product Images">
+                                    </a>
+                                    <div class="product-hover-action">
+                                        <ul class="cart-action">
+                                            <li class="wishlist"><a href="wishlist.html"><i
+                                                        class="far fa-heart"></i></a></li>
+                                            <li class="select-option"><a href="cart.html">اضافه به سبد خرید</a></li>
+                                            <li class="quickview"><a href="#" data-bs-toggle="modal"
+                                                    data-bs-target="#quick-view-modal"><i class="far fa-eye"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="product-content">
+                                    <div class="inner">
+                                        <h5 class="title"><a href="single-product.html">دستبند الماس</a></h5>
+                                        <div class="product-price-variant">
+                                            <span class="price old-price">40.000</span>
+                                            <span class="price current-price">30.000</span>
+                                        </div>
+                                        <div class="color-variant-wrapper">
+                                            <ul class="color-variant">
+                                                <li class="color-extra-01 active"><span><span
+                                                            class="color"></span></span>
+                                                </li>
+                                                <li class="color-extra-02"><span><span class="color"></span></span>
+                                                </li>
+                                                <li class="color-extra-03"><span><span class="color"></span></span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Single Product  -->
+                        <div class="col-xl-3 col-lg-4 col-sm-6 col-12 mb--30">
+                            <div class="axil-product product-style-one">
+                                <div class="thumbnail">
+                                    <a href="single-product.html">
+                                        <img data-sal="fade" data-sal-delay="300" data-sal-duration="1500"
+                                            src="{% static 'images/product/jewellery/product-13.png' %}" alt="Product Images">
+                                    </a>
+                                    <div class="label-block label-right">
+                                        <div class="product-badget">30% OFF</div>
+                                    </div>
+                                    <div class="product-hover-action">
+                                        <ul class="cart-action">
+                                            <li class="wishlist"><a href="wishlist.html"><i
+                                                        class="far fa-heart"></i></a></li>
+                                            <li class="select-option"><a href="cart.html">اضافه به سبد خرید</a></li>
+                                            <li class="quickview"><a href="#" data-bs-toggle="modal"
+                                                    data-bs-target="#quick-view-modal"><i class="far fa-eye"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="product-content">
+                                    <div class="inner">
+                                        <h5 class="title"><a href="single-product.html">حلقه الماس</a></h5>
+                                        <div class="product-price-variant">
+                                            <span class="price old-price">60.000</span>
+                                            <span class="price current-price">45.000</span>
+                                        </div>
+                                        <div class="color-variant-wrapper">
+                                            <ul class="color-variant">
+                                                <li class="color-extra-01 active"><span><span
+                                                            class="color"></span></span>
+                                                </li>
+                                                <li class="color-extra-02"><span><span class="color"></span></span>
+                                                </li>
+                                                <li class="color-extra-03"><span><span class="color"></span></span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Single Product  -->
+                        <div class="col-xl-3 col-lg-4 col-sm-6 col-12 mb--30">
+                            <div class="axil-product product-style-one">
+                                <div class="thumbnail">
+                                    <a href="single-product.html">
+                                        <img data-sal="fade" data-sal-delay="400" data-sal-duration="1500"
+                                            src="{% static 'images/product/jewellery/product-14.png' %}" alt="Product Images">
+                                    </a>
+                                    <div class="product-hover-action">
+                                        <ul class="cart-action">
+                                            <li class="wishlist"><a href="wishlist.html"><i
+                                                        class="far fa-heart"></i></a></li>
+                                            <li class="select-option"><a href="cart.html">اضافه به سبد خرید</a></li>
+                                            <li class="quickview"><a href="#" data-bs-toggle="modal"
+                                                    data-bs-target="#quick-view-modal"><i class="far fa-eye"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="product-content">
+                                    <div class="inner">
+                                        <h5 class="title"><a href="single-product.html">حلقه الماس</a></h5>
+                                        <div class="product-price-variant">
+                                            <span class="price old-price">80.000</span>
+                                            <span class="price current-price">60.000</span>
+                                        </div>
+                                        <div class="color-variant-wrapper">
+                                            <ul class="color-variant">
+                                                <li class="color-extra-01 active"><span><span
+                                                            class="color"></span></span>
+                                                </li>
+                                                <li class="color-extra-02"><span><span class="color"></span></span>
+                                                </li>
+                                                <li class="color-extra-03"><span><span class="color"></span></span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Single Product  -->
+                        <div class="col-xl-3 col-lg-4 col-sm-6 col-12 mb--30">
+                            <div class="axil-product product-style-one">
+                                <div class="thumbnail">
+                                    <a href="single-product.html">
+                                        <img data-sal="fade" data-sal-delay="100" data-sal-duration="1500"
+                                            src="{% static 'images/product/jewellery/product-15.png' %}" alt="Product Images">
+                                    </a>
+                                    <div class="label-block label-right">
+                                        <div class="product-badget">50% تخفیف</div>
+                                    </div>
+                                    <div class="product-hover-action">
+                                        <ul class="cart-action">
+                                            <li class="wishlist"><a href="wishlist.html"><i
+                                                        class="far fa-heart"></i></a></li>
+                                            <li class="select-option"><a href="cart.html">اضافه به سبد خرید</a></li>
+                                            <li class="quickview"><a href="#" data-bs-toggle="modal"
+                                                    data-bs-target="#quick-view-modal"><i class="far fa-eye"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="product-content">
+                                    <div class="inner">
+                                        <h5 class="title"><a href="single-product.html">گوشواره الماس</a></h5>
+                                        <div class="product-price-variant">
+                                            <span class="price old-price">50.000</span>
+                                            <span class="price current-price">30.000</span>
+                                        </div>
+                                        <div class="color-variant-wrapper">
+                                            <ul class="color-variant">
+                                                <li class="color-extra-01 active"><span><span
+                                                            class="color"></span></span>
+                                                </li>
+                                                <li class="color-extra-02"><span><span class="color"></span></span>
+                                                </li>
+                                                <li class="color-extra-03"><span><span class="color"></span></span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Single Product  -->
+                        <div class="col-xl-3 col-lg-4 col-sm-6 col-12 mb--30">
+                            <div class="axil-product product-style-one">
+                                <div class="thumbnail">
+                                    <a href="single-product.html">
+                                        <img data-sal="fade" data-sal-delay="200" data-sal-duration="1500"
+                                            src="{% static 'images/product/jewellery/product-1.png' %}" alt="Product Images">
+                                    </a>
+                                    <div class="product-hover-action">
+                                        <ul class="cart-action">
+                                            <li class="wishlist"><a href="wishlist.html"><i
+                                                        class="far fa-heart"></i></a></li>
+                                            <li class="select-option"><a href="cart.html">اضافه به سبد خرید</a></li>
+                                            <li class="quickview"><a href="#" data-bs-toggle="modal"
+                                                    data-bs-target="#quick-view-modal"><i class="far fa-eye"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="product-content">
+                                    <div class="inner">
+                                        <h5 class="title"><a href="single-product.html">قفسه الماس</a></h5>
+                                        <div class="product-price-variant">
+                                            <span class="price old-price">40.000</span>
+                                            <span class="price current-price">25.000</span>
+                                        </div>
+                                        <div class="color-variant-wrapper">
+                                            <ul class="color-variant">
+                                                <li class="color-extra-01 active"><span><span
+                                                            class="color"></span></span>
+                                                </li>
+                                                <li class="color-extra-02"><span><span class="color"></span></span>
+                                                </li>
+                                                <li class="color-extra-03"><span><span class="color"></span></span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Single Product  -->
+                        <div class="col-xl-3 col-lg-4 col-sm-6 col-12 mb--30">
+                            <div class="axil-product product-style-one">
+                                <div class="thumbnail">
+                                    <a href="single-product.html">
+                                        <img data-sal="fade" data-sal-delay="300" data-sal-duration="1500"
+                                            src="{% static 'images/product/jewellery/product-2.png' %}" alt="Product Images">
+                                    </a>
+                                    <div class="label-block label-right">
+                                        <div class="product-badget">40% تخفیف</div>
+                                    </div>
+                                    <div class="product-hover-action">
+                                        <ul class="cart-action">
+                                            <li class="wishlist"><a href="wishlist.html"><i
+                                                        class="far fa-heart"></i></a></li>
+                                            <li class="select-option"><a href="cart.html">اضافه به سبد خرید</a></li>
+                                            <li class="quickview"><a href="#" data-bs-toggle="modal"
+                                                    data-bs-target="#quick-view-modal"><i class="far fa-eye"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="product-content">
+                                    <div class="inner">
+                                        <h5 class="title"><a href="single-product.html">قفسه الماس</a></h5>
+                                        <div class="product-price-variant">
+                                            <span class="price old-price">30.000</span>
+                                            <span class="price current-price">25.000</span>
+                                        </div>
+                                        <div class="color-variant-wrapper">
+                                            <ul class="color-variant">
+                                                <li class="color-extra-01 active"><span><span
+                                                            class="color"></span></span>
+                                                </li>
+                                                <li class="color-extra-02"><span><span class="color"></span></span>
+                                                </li>
+                                                <li class="color-extra-03"><span><span class="color"></span></span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Single Product  -->
+                        <div class="col-xl-3 col-lg-4 col-sm-6 col-12 mb--30">
+                            <div class="axil-product product-style-one">
+                                <div class="thumbnail">
+                                    <a href="single-product.html">
+                                        <img data-sal="fade" data-sal-delay="400" data-sal-duration="1500"
+                                            src="{% static 'images/product/jewellery/product-3.png' %}" alt="Product Images">
+                                    </a>
+                                    <div class="product-hover-action">
+                                        <ul class="cart-action">
+                                            <li class="wishlist"><a href="wishlist.html"><i
+                                                        class="far fa-heart"></i></a></li>
+                                            <li class="select-option"><a href="cart.html">اضافه به سبد خرید</a></li>
+                                            <li class="quickview"><a href="#" data-bs-toggle="modal"
+                                                    data-bs-target="#quick-view-modal"><i class="far fa-eye"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="product-content">
+                                    <div class="inner">
+                                        <h5 class="title"><a href="single-product.html">حلقه الماس</a></h5>
+                                        <div class="product-price-variant">
+                                            <span class="price old-price">60.000</span>
+                                            <span class="price current-price">40.000</span>
+                                        </div>
+                                        <div class="color-variant-wrapper">
+                                            <ul class="color-variant">
+                                                <li class="color-extra-01 active"><span><span
+                                                            class="color"></span></span>
+                                                </li>
+                                                <li class="color-extra-02"><span><span class="color"></span></span>
+                                                </li>
+                                                <li class="color-extra-03"><span><span class="color"></span></span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Single Product  -->
+                        <div class="col-xl-3 col-lg-4 col-sm-6 col-12 mb--30">
+                            <div class="axil-product product-style-one">
+                                <div class="thumbnail">
+                                    <a href="single-product.html">
+                                        <img data-sal="fade" data-sal-delay="100" data-sal-duration="1500"
+                                            src="{% static 'images/product/jewellery/product-4.png' %}" alt="Product Images">
+                                    </a>
+                                    <div class="product-hover-action">
+                                        <ul class="cart-action">
+                                            <li class="wishlist"><a href="wishlist.html"><i
+                                                        class="far fa-heart"></i></a></li>
+                                            <li class="select-option"><a href="cart.html">اضافه به سبد خرید</a></li>
+                                            <li class="quickview"><a href="#" data-bs-toggle="modal"
+                                                    data-bs-target="#quick-view-modal"><i class="far fa-eye"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="product-content">
+                                    <div class="inner">
+                                        <h5 class="title"><a href="single-product.html">دستبند الماس</a></h5>
+                                        <div class="product-price-variant">
+                                            <span class="price old-price">50.000</span>
+                                            <span class="price current-price">40.000</span>
+                                        </div>
+                                        <div class="color-variant-wrapper">
+                                            <ul class="color-variant">
+                                                <li class="color-extra-01 active"><span><span
+                                                            class="color"></span></span>
+                                                </li>
+                                                <li class="color-extra-02"><span><span class="color"></span></span>
+                                                </li>
+                                                <li class="color-extra-03"><span><span class="color"></span></span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Single Product  -->
+                        <div class="col-xl-3 col-lg-4 col-sm-6 col-12 mb--30">
+                            <div class="axil-product product-style-one">
+                                <div class="thumbnail">
+                                    <a href="single-product.html">
+                                        <img data-sal="fade" data-sal-delay="200" data-sal-duration="1500"
+                                            src="{% static 'images/product/jewellery/product-5.png' %}" alt="Product Images">
+                                    </a>
+                                    <div class="label-block label-right">
+                                        <div class="product-badget">15% تخفیف</div>
+                                    </div>
+                                    <div class="product-hover-action">
+                                        <ul class="cart-action">
+                                            <li class="wishlist"><a href="wishlist.html"><i
+                                                        class="far fa-heart"></i></a></li>
+                                            <li class="select-option"><a href="cart.html">اضافه به سبد خرید</a></li>
+                                            <li class="quickview"><a href="#" data-bs-toggle="modal"
+                                                    data-bs-target="#quick-view-modal"><i class="far fa-eye"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="product-content">
+                                    <div class="inner">
+                                        <h5 class="title"><a href="single-product.html">قفسه الماس</a></h5>
+                                        <div class="product-price-variant">
+                                            <span class="price old-price">40.000</span>
+                                            <span class="price current-price">30.000</span>
+                                        </div>
+                                        <div class="color-variant-wrapper">
+                                            <ul class="color-variant">
+                                                <li class="color-extra-01 active"><span><span
+                                                            class="color"></span></span>
+                                                </li>
+                                                <li class="color-extra-02"><span><span class="color"></span></span>
+                                                </li>
+                                                <li class="color-extra-03"><span><span class="color"></span></span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Single Product  -->
+                        <div class="col-xl-3 col-lg-4 col-sm-6 col-12 mb--30">
+                            <div class="axil-product product-style-one">
+                                <div class="thumbnail">
+                                    <a href="single-product.html">
+                                        <img data-sal="fade" data-sal-delay="300" data-sal-duration="1500"
+                                            src="{% static 'images/product/jewellery/product-6.png' %}" alt="Product Images">
+                                    </a>
+                                    <div class="product-hover-action">
+                                        <ul class="cart-action">
+                                            <li class="wishlist"><a href="wishlist.html"><i
+                                                        class="far fa-heart"></i></a></li>
+                                            <li class="select-option"><a href="cart.html">اضافه به سبد خرید</a></li>
+                                            <li class="quickview"><a href="#" data-bs-toggle="modal"
+                                                    data-bs-target="#quick-view-modal"><i class="far fa-eye"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="product-content">
+                                    <div class="inner">
+                                        <h5 class="title"><a href="single-product.html">گردنبند الماس</a></h5>
+                                        <div class="product-price-variant">
+                                            <span class="price old-price">60.000</span>
+                                            <span class="price current-price">45.000</span>
+                                        </div>
+                                        <div class="color-variant-wrapper">
+                                            <ul class="color-variant">
+                                                <li class="color-extra-01 active"><span><span
+                                                            class="color"></span></span>
+                                                </li>
+                                                <li class="color-extra-02"><span><span class="color"></span></span>
+                                                </li>
+                                                <li class="color-extra-03"><span><span class="color"></span></span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Single Product  -->
+                        <div class="col-xl-3 col-lg-4 col-sm-6 col-12 mb--30">
+                            <div class="axil-product product-style-one">
+                                <div class="thumbnail">
+                                    <a href="single-product.html">
+                                        <img data-sal="fade" data-sal-delay="400" data-sal-duration="1500"
+                                            src="{% static 'images/product/jewellery/product-7.png' %}" alt="Product Images">
+                                    </a>
+                                    <div class="product-hover-action">
+                                        <ul class="cart-action">
+                                            <li class="wishlist"><a href="wishlist.html"><i
+                                                        class="far fa-heart"></i></a></li>
+                                            <li class="select-option"><a href="cart.html">اضافه به سبد خرید</a></li>
+                                            <li class="quickview"><a href="#" data-bs-toggle="modal"
+                                                    data-bs-target="#quick-view-modal"><i class="far fa-eye"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="product-content">
+                                    <div class="inner">
+                                        <h5 class="title"><a href="single-product.html">گردنبند الماس</a></h5>
+                                        <div class="product-price-variant">
+                                            <span class="price old-price">80.000</span>
+                                            <span class="price current-price">60.000</span>
+                                        </div>
+                                        <div class="color-variant-wrapper">
+                                            <ul class="color-variant">
+                                                <li class="color-extra-01 active"><span><span
+                                                            class="color"></span></span>
+                                                </li>
+                                                <li class="color-extra-02"><span><span class="color"></span></span>
+                                                </li>
+                                                <li class="color-extra-03"><span><span class="color"></span></span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Single Product  -->
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 text-center mt--20 mt_sm--0">
+                            <a href="shop.html" class="axil-btn btn-bg-lighter btn-load-more">نمایش همه محصولات</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Expolre Product Area  -->
+
+        <!-- Start New Arrivals Product Area  -->
+        <div class="axil-new-arrivals-product-area bg-color-white axil-section-gap pb--50">
+            <div class="container">
+                <div class="section-title-wrapper">
+                    <span class="title-highlighter highlighter-primary"><i class="far fa-shopping-basket"></i> این
+                        هفته</span>
+                    <h2 class="title">محصولات جدید</h2>
+                </div>
+                <div class="new-arrivals-product-activation slick-layout-wrapper--30 axil-slick-arrow  arrow-top-slide">
+                    <div class="slick-single-layout">
+                        <div class="axil-product product-style-two has-color-pick">
+                            <div class="thumbnail">
+                                <a href="single-product.html">
+                                    <img data-sal="fade" data-sal-delay="100" data-sal-duration="1500"
+                                        src="{% static 'images/product/jewellery/product-10.png' %}" alt="Product Images">
+                                </a>
+                                <div class="label-block label-right">
+                                    <div class="product-badget">10% تخفیف</div>
+                                </div>
+                            </div>
+                            <div class="product-content">
+                                <div class="inner">
+                                    <div class="color-variant-wrapper">
+                                        <ul class="color-variant">
+                                            <li class="color-extra-01 active"><span><span class="color"></span></span>
+                                            </li>
+                                            <li class="color-extra-02"><span><span class="color"></span></span>
+                                            </li>
+                                            <li class="color-extra-03"><span><span class="color"></span></span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <h5 class="title"><a href="single-product.html">دستبند الماس</a></h5>
+                                    <div class="product-price-variant">
+                                        <span class="price old-price">40.000</span>
+                                        <span class="price current-price">30.000</span>
+                                    </div>
+                                </div>
+                                <div class="product-hover-action">
+                                    <ul class="cart-action justify-content-center">
+                                        <li class="wishlist"><a href="wishlist.html"><i class="far fa-heart"></i></a>
+                                        </li>
+                                        <li class="select-option"><a href="cart.html">اضافه به سبد خرید</a></li>
+                                        <li class="quickview"><a href="#" data-bs-toggle="modal"
+                                                data-bs-target="#quick-view-modal"><i class="far fa-eye"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End .slick-single-layout -->
+                    <div class="slick-single-layout">
+                        <div class="axil-product product-style-two has-color-pick">
+                            <div class="thumbnail">
+                                <a href="single-product.html">
+                                    <img data-sal="fade" data-sal-delay="200" data-sal-duration="1500"
+                                        src="{% static 'images/product/jewellery/product-11.png' %}" alt="Product Images">
+                                </a>
+                                <div class="label-block label-right">
+                                    <div class="product-badget">25% تخفیف</div>
+                                </div>
+                            </div>
+                            <div class="product-content">
+                                <div class="inner">
+                                    <div class="color-variant-wrapper">
+                                        <ul class="color-variant">
+                                            <li class="color-extra-01 active"><span><span class="color"></span></span>
+                                            </li>
+                                            <li class="color-extra-02"><span><span class="color"></span></span>
+                                            </li>
+                                            <li class="color-extra-03"><span><span class="color"></span></span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <h5 class="title"><a href="single-product.html">قفسه الماس</a></h5>
+                                    <div class="product-price-variant">
+                                        <span class="price old-price">50.000</span>
+                                        <span class="price current-price">40.000</span>
+                                    </div>
+                                </div>
+                                <div class="product-hover-action">
+                                    <ul class="cart-action justify-content-center">
+                                        <li class="wishlist"><a href="wishlist.html"><i class="far fa-heart"></i></a>
+                                        </li>
+                                        <li class="select-option"><a href="cart.html">اضافه به سبد خرید</a></li>
+                                        <li class="quickview"><a href="#" data-bs-toggle="modal"
+                                                data-bs-target="#quick-view-modal"><i class="far fa-eye"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End .slick-single-layout -->
+                    <div class="slick-single-layout">
+                        <div class="axil-product product-style-two has-color-pick">
+                            <div class="thumbnail">
+                                <a href="single-product.html">
+                                    <img data-sal="fade" data-sal-delay="300" data-sal-duration="1500"
+                                        src="{% static 'images/product/jewellery/product-12.png' %}" alt="Product Images">
+                                </a>
+                                <div class="label-block label-right">
+                                    <div class="product-badget">15% تخفیف</div>
+                                </div>
+                            </div>
+                            <div class="product-content">
+                                <div class="inner">
+                                    <div class="color-variant-wrapper">
+                                        <ul class="color-variant">
+                                            <li class="color-extra-01 active"><span><span class="color"></span></span>
+                                            </li>
+                                            <li class="color-extra-02"><span><span class="color"></span></span>
+                                            </li>
+                                            <li class="color-extra-03"><span><span class="color"></span></span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <h5 class="title"><a href="single-product.html">دستبند الماس</a></h5>
+                                    <div class="product-price-variant">
+                                        <span class="price old-price">60.000</span>
+                                        <span class="price current-price">45.000</span>
+                                    </div>
+                                </div>
+                                <div class="product-hover-action">
+                                    <ul class="cart-action justify-content-center">
+                                        <li class="wishlist"><a href="wishlist.html"><i class="far fa-heart"></i></a>
+                                        </li>
+                                        <li class="select-option"><a href="cart.html">اضافه به سبد خرید</a></li>
+                                        <li class="quickview"><a href="#" data-bs-toggle="modal"
+                                                data-bs-target="#quick-view-modal"><i class="far fa-eye"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End .slick-single-layout -->
+                    <div class="slick-single-layout">
+                        <div class="axil-product product-style-two has-color-pick">
+                            <div class="thumbnail">
+                                <a href="single-product.html">
+                                    <img data-sal="fade" data-sal-delay="400" data-sal-duration="1500"
+                                        src="{% static 'images/product/jewellery/product-13.png' %}" alt="Product Images">
+                                </a>
+                                <div class="label-block label-right">
+                                    <div class="product-badget">30% تخفیف</div>
+                                </div>
+                            </div>
+                            <div class="product-content">
+                                <div class="inner">
+                                    <div class="color-variant-wrapper">
+                                        <ul class="color-variant">
+                                            <li class="color-extra-01 active"><span><span class="color"></span></span>
+                                            </li>
+                                            <li class="color-extra-02"><span><span class="color"></span></span>
+                                            </li>
+                                            <li class="color-extra-03"><span><span class="color"></span></span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <h5 class="title"><a href="single-product.html">حلقه الماس</a></h5>
+                                    <div class="product-price-variant">
+                                        <span class="price old-price">30.000</span>
+                                        <span class="price current-price">20.000</span>
+                                    </div>
+                                </div>
+                                <div class="product-hover-action">
+                                    <ul class="cart-action justify-content-center">
+                                        <li class="wishlist"><a href="wishlist.html"><i class="far fa-heart"></i></a>
+                                        </li>
+                                        <li class="select-option"><a href="cart.html">اضافه به سبد خرید</a></li>
+                                        <li class="quickview"><a href="#" data-bs-toggle="modal"
+                                                data-bs-target="#quick-view-modal"><i class="far fa-eye"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End .slick-single-layout -->
+                    <div class="slick-single-layout">
+                        <div class="axil-product product-style-two has-color-pick">
+                            <div class="thumbnail">
+                                <a href="single-product.html">
+                                    <img data-sal="fade" data-sal-delay="100" data-sal-duration="1500"
+                                        src="{% static 'images/product/jewellery/product-14.png' %}" alt="Product Images">
+                                </a>
+                                <div class="label-block label-right">
+                                    <div class="product-badget">50% تخفیف</div>
+                                </div>
+                            </div>
+                            <div class="product-content">
+                                <div class="inner">
+                                    <div class="color-variant-wrapper">
+                                        <ul class="color-variant">
+                                            <li class="color-extra-01 active"><span><span class="color"></span></span>
+                                            </li>
+                                            <li class="color-extra-02"><span><span class="color"></span></span>
+                                            </li>
+                                            <li class="color-extra-03"><span><span class="color"></span></span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <h5 class="title"><a href="single-product.html">حلقه الماس</a></h5>
+                                    <div class="product-price-variant">
+                                        <span class="price old-price">50.000</span>
+                                        <span class="price current-price">25.000</span>
+                                    </div>
+                                </div>
+                                <div class="product-hover-action">
+                                    <ul class="cart-action justify-content-center">
+                                        <li class="wishlist"><a href="wishlist.html"><i class="far fa-heart"></i></a>
+                                        </li>
+                                        <li class="select-option"><a href="cart.html">اضافه به سبد خرید</a></li>
+                                        <li class="quickview"><a href="#" data-bs-toggle="modal"
+                                                data-bs-target="#quick-view-modal"><i class="far fa-eye"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End .slick-single-layout -->
+                    <div class="slick-single-layout">
+                        <div class="axil-product product-style-two has-color-pick">
+                            <div class="thumbnail">
+                                <a href="single-product.html">
+                                    <img data-sal="fade" data-sal-delay="200" data-sal-duration="1500"
+                                        src="{% static 'images/product/jewellery/product-15.png' %}" alt="Product Images">
+                                </a>
+                                <div class="label-block label-right">
+                                    <div class="product-badget">15% تخفیف</div>
+                                </div>
+                            </div>
+                            <div class="product-content">
+                                <div class="inner">
+                                    <div class="color-variant-wrapper">
+                                        <ul class="color-variant">
+                                            <li class="color-extra-01 active"><span><span class="color"></span></span>
+                                            </li>
+                                            <li class="color-extra-02"><span><span class="color"></span></span>
+                                            </li>
+                                            <li class="color-extra-03"><span><span class="color"></span></span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <h5 class="title"><a href="single-product.html">گوشواره الماس</a></h5>
+                                    <div class="product-price-variant">
+                                        <span class="price old-price">60.000</span>
+                                        <span class="price current-price">45.000</span>
+                                    </div>
+                                </div>
+                                <div class="product-hover-action">
+                                    <ul class="cart-action justify-content-center">
+                                        <li class="wishlist"><a href="wishlist.html"><i class="far fa-heart"></i></a>
+                                        </li>
+                                        <li class="select-option"><a href="cart.html">اضافه به سبد خرید</a></li>
+                                        <li class="quickview"><a href="#" data-bs-toggle="modal"
+                                                data-bs-target="#quick-view-modal"><i class="far fa-eye"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End .slick-single-layout -->
+                    <div class="slick-single-layout">
+                        <div class="axil-product product-style-two has-color-pick">
+                            <div class="thumbnail">
+                                <a href="single-product.html">
+                                    <img data-sal="fade" data-sal-delay="300" data-sal-duration="1500"
+                                        src="{% static 'images/product/jewellery/product-4.png' %}" alt="Product Images">
+                                </a>
+                                <div class="label-block label-right">
+                                    <div class="product-badget">30% تخفیف</div>
+                                </div>
+                            </div>
+                            <div class="product-content">
+                                <div class="inner">
+                                    <div class="color-variant-wrapper">
+                                        <ul class="color-variant">
+                                            <li class="color-extra-01 active"><span><span class="color"></span></span>
+                                            </li>
+                                            <li class="color-extra-02"><span><span class="color"></span></span>
+                                            </li>
+                                            <li class="color-extra-03"><span><span class="color"></span></span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <h5 class="title"><a href="single-product.html">دستبند الماس</a></h5>
+                                    <div class="product-price-variant">
+                                        <span class="price old-price">30.000</span>
+                                        <span class="price current-price">20.000</span>
+                                    </div>
+                                </div>
+                                <div class="product-hover-action">
+                                    <ul class="cart-action justify-content-center">
+                                        <li class="wishlist"><a href="wishlist.html"><i class="far fa-heart"></i></a>
+                                        </li>
+                                        <li class="select-option"><a href="cart.html">اضافه به سبد خرید</a></li>
+                                        <li class="quickview"><a href="#" data-bs-toggle="modal"
+                                                data-bs-target="#quick-view-modal"><i class="far fa-eye"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End .slick-single-layout -->
+                    <div class="slick-single-layout">
+                        <div class="axil-product product-style-two has-color-pick">
+                            <div class="thumbnail">
+                                <a href="single-product.html">
+                                    <img data-sal="fade" data-sal-delay="400" data-sal-duration="1500"
+                                        src="{% static 'images/product/jewellery/product-5.png' %}" alt="Product Images">
+                                </a>
+                                <div class="label-block label-right">
+                                    <div class="product-badget">50% تخفیف</div>
+                                </div>
+                            </div>
+                            <div class="product-content">
+                                <div class="inner">
+                                    <div class="color-variant-wrapper">
+                                        <ul class="color-variant">
+                                            <li class="color-extra-01 active"><span><span class="color"></span></span>
+                                            </li>
+                                            <li class="color-extra-02"><span><span class="color"></span></span>
+                                            </li>
+                                            <li class="color-extra-03"><span><span class="color"></span></span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <h5 class="title"><a href="single-product.html">گردنبند الماس</a></h5>
+                                    <div class="product-price-variant">
+                                        <span class="price old-price">50.000</span>
+                                        <span class="price current-price">25.000</span>
+                                    </div>
+                                </div>
+                                <div class="product-hover-action">
+                                    <ul class="cart-action justify-content-center">
+                                        <li class="wishlist"><a href="wishlist.html"><i class="far fa-heart"></i></a>
+                                        </li>
+                                        <li class="select-option"><a href="cart.html">اضافه به سبد خرید</a></li>
+                                        <li class="quickview"><a href="#" data-bs-toggle="modal"
+                                                data-bs-target="#quick-view-modal"><i class="far fa-eye"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End .slick-single-layout -->
+                </div>
+            </div>
+        </div>
+        <!-- End New Arrivals Product Area  -->
+
+
+        <!-- Start Axil Newsletter Area  -->
+        <div class="axil-newsletter-area axil-section-gap pt--0">
+            <div class="container">
+                <div class="etrade-newsletter-wrapper bg_image bg_image--11">
+                    <div class="newsletter-content">
+                        <span class="title-highlighter highlighter-primary2"><i
+                                class="fas fa-envelope-open"></i>خبرنامه</span>
+                        <h2 class="title mb--40 mb_sm--30">دریافت آپدیت هفتگی</h2>
+                        <div class="input-group newsletter-form">
+                            <div class="position-relative newsletter-inner mb--15">
+                                <input placeholder="example@gmail.com" type="text">
+                            </div>
+                            <button type="submit" class="axil-btn mb--15">اشتراک</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End .container -->
+        </div>
+        <!-- End Axil Newsletter Area  -->
+
+    <!-- Product Quick View Modal Start -->
+    <div class="modal fade quick-view-product" id="quick-view-modal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i
+                            class="far fa-times"></i></button>
+                </div>
+                <div class="modal-body">
+                    <div class="single-product-thumb">
+                        <div class="row">
+                            <div class="col-lg-7 mb--40">
+                                <div class="row">
+                                    <div class="col-lg-10 order-lg-2">
+                                        <div
+                                            class="single-product-thumbnail product-large-thumbnail axil-product thumbnail-badge zoom-gallery">
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/product/product-big-01.png' %}"
+                                                    alt="Product Images">
+                                                <div class="label-block label-right">
+                                                    <div class="product-badget">20% تخفیف</div>
+                                                </div>
+                                                <div class="product-quick-view position-view">
+                                                    <a href="{% static 'images/product/product-big-01.png' %}"
+                                                        class="popup-zoom">
+                                                        <i class="far fa-search-plus"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/product/product-big-02.png' %}"
+                                                    alt="Product Images">
+                                                <div class="label-block label-right">
+                                                    <div class="product-badget">20% تخفیف</div>
+                                                </div>
+                                                <div class="product-quick-view position-view">
+                                                    <a href="{% static 'images/product/product-big-02.png' %}"
+                                                        class="popup-zoom">
+                                                        <i class="far fa-search-plus"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="thumbnail">
+                                                <img src="{% static 'images/product/product-big-03.png' %}"
+                                                    alt="Product Images">
+                                                <div class="label-block label-right">
+                                                    <div class="product-badget">20% تخفیف</div>
+                                                </div>
+                                                <div class="product-quick-view position-view">
+                                                    <a href="{% static 'images/product/product-big-03.png' %}"
+                                                        class="popup-zoom">
+                                                        <i class="far fa-search-plus"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 order-lg-1">
+                                        <div class="product-small-thumb small-thumb-wrapper">
+                                            <div class="small-thumb-img">
+                                                <img src="{% static 'images/product/product-thumb/thumb-08.png' %}"
+                                                    alt="thumb image">
+                                            </div>
+                                            <div class="small-thumb-img">
+                                                <img src="{% static 'images/product/product-thumb/thumb-07.png' %}"
+                                                    alt="thumb image">
+                                            </div>
+                                            <div class="small-thumb-img">
+                                                <img src="{% static 'images/product/product-thumb/thumb-09.png' %}"
+                                                    alt="thumb image">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-5 mb--40">
+                                <div class="single-product-content">
+                                    <div class="inner">
+                                        <div class="product-rating">
+                                            <div class="star-rating">
+                                                <img src="{% static 'images/icons/rate.png' %}" alt="Rate Images">
+                                            </div>
+                                            <div class="review-link">
+                                                <a href="#">(<span>1</span> مشتری نظر)</a>
+                                            </div>
+                                        </div>
+                                        <h3 class="product-title">هدفون بی سیم roco</h3>
+                                        <span class="price-amount">155.000 - 255.000</span>
+                                        <ul class="product-meta">
+                                            <li><i class="fal fa-check"></i>موجود در انبار</li>
+                                            <li><i class="fal fa-check"></i>ارسال رایگان</li>
+                                            <li><i class="fal fa-check"></i>30% درصد تخفیف با: MOTIVE30</li>
+                                        </ul>
+                                        <p class="description">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
+                                            چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله
+                                            در ستون و سطرآنچنان که لازم است، و برای </p>
+
+                                        <div class="product-variations-wrapper">
+
+                                            <!-- Start Product Variation  -->
+                                            <div class="product-variation">
+                                                <h6 class="title">رنگ ها:</h6>
+                                                <div class="color-variant-wrapper">
+                                                    <ul class="color-variant mt--0">
+                                                        <li class="color-extra-01 active"><span><span
+                                                                    class="color"></span></span>
+                                                        </li>
+                                                        <li class="color-extra-02"><span><span
+                                                                    class="color"></span></span>
+                                                        </li>
+                                                        <li class="color-extra-03"><span><span
+                                                                    class="color"></span></span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <!-- End Product Variation  -->
+
+                                            <!-- Start Product Variation  -->
+                                            <div class="product-variation">
+                                                <h6 class="title">سایز:</h6>
+                                                <ul class="range-variant">
+                                                    <li>xs</li>
+                                                    <li>s</li>
+                                                    <li>m</li>
+                                                    <li>l</li>
+                                                    <li>xl</li>
+                                                </ul>
+                                            </div>
+                                            <!-- End Product Variation  -->
+
+                                        </div>
+
+                                        <!-- Start Product Action Wrapper  -->
+                                        <div class="product-action-wrapper d-flex-center">
+                                            <!-- Start Quentity Action  -->
+                                            <div class="pro-qty"><input type="text" value="1"></div>
+                                            <!-- End Quentity Action  -->
+
+                                            <!-- Start Product Action  -->
+                                            <ul class="product-action d-flex-center mb--0">
+                                                <li class="add-to-cart"><a href="cart.html"
+                                                        class="axil-btn btn-bg-primary">اطلاعات بیشتر</a></li>
+                                                <li class="wishlist"><a href="wishlist.html"
+                                                        class="axil-btn wishlist-btn"><i class="far fa-heart"></i></a>
+                                                </li>
+                                            </ul>
+                                            <!-- End Product Action  -->
+
+                                        </div>
+                                        <!-- End Product Action Wrapper  -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        </div>
+    <!-- Product Quick View Modal End -->
+{% endblock main_khosh_kam %}
+
+{% block footer_khosh_kam %}
+    {% include 'khosh_kam/base/footer_base.html' %}
+{% endblock footer_khosh_kam %}
+
+
+{% block js_khosh_kam %}
+   <!-- Modernizer JS -->
+    <script src="{% static 'js/vendor/modernizr.min.js' %}"></script>
+    <!-- jQuery JS -->
+    <script src="{% static 'js/vendor/jquery.js' %}"></script>
+    <!-- Bootstrap JS -->
+    <script src="{% static 'js/vendor/popper.min.js' %}"></script>
+    <script src="{% static 'js/vendor/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/vendor/slick.min.js' %}"></script>
+    <script src="{% static 'js/vendor/js.cookie.js' %}"></script>
+    <!-- <script src="assets/js/vendor/jquery.style.switcher.js"></script> -->
+    <script src="{% static 'js/vendor/jquery-ui.min.js' %}"></script>
+    <script src="{% static 'js/vendor/jquery.countdown.min.js' %}"></script>
+    <script src="{% static 'js/vendor/sal.js' %}"></script>
+    <script src="{% static 'js/vendor/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'js/vendor/imagesloaded.pkgd.min.js' %}"></script>
+    <script src="{% static 'js/vendor/isotope.pkgd.min.js' %}"></script>
+    <script src="{% static 'js/vendor/counterup.js' %}"></script>
+    <script src="{% static 'js/vendor/waypoints.min.js' %}"></script>
+
+    <!-- Main JS -->
+    <script src="{% static 'js/rtl-main.js' %}"></script>
+{% endblock js_khosh_kam %}

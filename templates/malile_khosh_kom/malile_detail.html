@@ -1,0 +1,664 @@
+{% extends 'khosh_kam/base/base.html' %}
+{% load static %}
+{% load render_partial %}
+{% block title_khosh_kam %}
+{{ object.title }} | ملیله خوش کام
+{% endblock title_khosh_kam %}
+
+{% block style_header_base %}
+    <link rel="stylesheet" href="{% static 'css/vendor/bootstrap.rtl.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/vendor/font-awesome.css' %}">
+    <link rel="stylesheet" href="{% static 'css/vendor/flaticon/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'css/vendor/slick.css' %}">
+    <link rel="stylesheet" href="{% static 'css/vendor/slick-theme.css' %}">
+    <link rel="stylesheet" href="{% static 'css/vendor/jquery-ui.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/vendor/sal.css' %}">
+    <link rel="stylesheet" href="{% static 'css/vendor/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'css/vendor/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.min.css' %}">
+    <style>
+        input[type="number"] {
+    height: 100px;
+
+
+}
+
+
+
+
+    </style>
+{% endblock style_header_base %}
+
+{% block header_khosh_kam %}
+    {% render_partial 'header_base' %}
+{% endblock header_khosh_kam %}
+{% block main_khosh_kam %}
+
+        <!-- Start Shop Area  -->
+        <div class="axil-single-product-area bg-color-white">
+            <div class="single-product-thumb axil-section-gap pb--30">
+                <div class="container">
+                    <div class="row row--50">
+                        <div class="col-lg-6 mb--40">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div
+                                        class="product-large-thumbnail-2 single-product-thumbnail axil-product slick-layout-wrapper--15 axil-slick-arrow arrow-both-side-3">
+                                        <div class="thumbnail">
+                                            <img src="{{ object.image.url }}"
+                                                alt="{{ object.title }}">
+                                        </div>
+                                        {% for galley in malile_galley %}
+                                        <div class="thumbnail">
+                                            <img src="{{ galley.image.url }}"
+                                                alt="{{ galley }}">
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="small-thumb-wrapper product-small-thumb-2 small-thumb-style-two small-thumb-style-three">
+                                        <div class="small-thumb-img">
+                                            <img src="{{ object.image.url }}" alt="samll-thumb">
+                                        </div>
+                                            {% for galley in malile_galley %}
+                                            <div class="small-thumb-img" >
+                                                <img src="{{ galley.image.url }}"
+                                                    alt="{{ galley }}">
+                                            </div>
+                                            {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 mb--40">
+                            <div class="single-product-content">
+                                <div class="inner">
+                                    <h2 class="product-title mb--40">{{ object.title }}</h2>
+                                    <div class="price-amount">{{ object.price }}</div>
+                                        <div class="review-link">
+                                            <a href="#">(<span>{{ comments.count }}</span> نظر)</a>
+                                        </div>
+                                    </div>
+                                    <ul class="product-meta">
+                                        {% if object.existing %}
+                                                <li style='color:green;'><i class="fal fa-check" style='color:green;'></i>موجود در انبار</li>
+                                            {% else %}
+                                            <li style='color:red;'><i class="fal fa-times" style='color:red;'></i> نا موجود در انبار</li>
+                                        {% endif %}
+                                            </ul>
+                                  <!-- Start Product Variation  -->
+                                        <div class="product-variation">
+                                            <h6 class="title">رنگ:</h6>
+                                            <div class="color-variant-wrapper">
+                                                <ul class="color-variant">
+                                                    <li class="color-extra-01 active"><span><span class="color" style="background-color:#C0C0C0;"></span></span>
+                                                    </li>
+
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <!-- End Product Variation  -->
+
+                                    <p class="description mb--40">{{ object.descriptions|striptags|safe}}</p>
+
+                                    <!-- Start Product Action Wrapper  -->
+                                    <div class="product-action-wrapper d-flex-center">
+                                         <!-- Start Quentity Action  -->
+
+                                         <form method="post" action="{% url 'order_khosh_kam:add-order' object.id %}">
+                                            {% csrf_token %}
+                                        <!-- End Quentity Action  -->
+                                        <div style="float:right;">{{ order_form.count }}</div>
+                                        <!-- Start Product Apctpxion  -->
+                                         <ul class="product-action d-flex-center mb--0">
+                                            <li class="add-to-cart"><button class="axil-btn btn-bg-primary">افزودن به سبد خرید</button></li>
+                                        </form>
+
+                                                    {% if request.user.is_authenticated %}
+                                                        {% if object in request.user.favorits.all %}
+                                            <li class="wishlist"><a href="{% url 'malile_khosh_kam:malile-favorites' malile.id %}"
+                                                    class="axil-btn wishlist-btn" style="background-color: var(--color-primary);"><i class="far fa-heart"></i></a></li>
+                                                    {%  else %}
+                                                    <li class="wishlist"><a href="{% url 'malile_khosh_kam:malile-favorites' malile.id %}"
+                                                        class="axil-btn wishlist-btn"><i class="far fa-heart"></i></a></li>
+                                                    {% endif %}
+                                                    {% else %}
+                                                    <li class="wishlist"><a href="{% url 'malile_khosh_kam:malile-favorites' malile.id %}"
+                                                        class="axil-btn wishlist-btn"><i class="far fa-heart"></i></a></li>
+                                                    {% endif %}
+                                        </ul>
+                                         <!-- End Product Action  -->
+
+                                    </div>
+                                    <!-- End Product Action Wrapper  -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End .single-product-thumb -->
+
+            <div class="woocommerce-tabs wc-tabs-wrapper bg-vista-white">
+                <div class="container">
+                    <ul class="nav tabs" id="myTab" role="tablist">
+
+                        <li class="nav-item " role="presentation">
+                            <a id="additional-info-tab" data-bs-toggle="tab" href="#additional-info" role="tab"
+                                aria-controls="additional-info" aria-selected="false">اطلاعات فنی</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a id="reviews-tab" data-bs-toggle="tab" href="#reviews" role="tab" aria-controls="reviews"
+                                aria-selected="false">نظرات</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="additional-info" role="tabpanel"
+                            aria-labelledby="additional-info-tab">
+                            <div class="product-additional-info">
+                                <div class="table-responsive">
+                                    <table>
+                                        <tbody>
+                                            <tr>
+                                                <th>جنس</th>
+                                                <td>نقره خالص</td>
+                                            </tr>
+                                             <tr>
+                                                <th>رنگ</th>
+                                                <td>نقره ای</td>
+                                            </tr>
+                                            <tr>
+                                                <th>عیار</th>
+                                                <td>999</td>
+                                            </tr>
+                                           <tr>
+                                                <th>وزن</th>
+                                                <td>{{ object.weight }} گرم</td>
+                                            </tr>
+                                           <tr>
+                                                <th>طول</th>
+                                                <td>{{ object.height }} سانتی متر</td>
+                                            </tr>
+                                           <tr>
+                                                <th>عرض</th>
+                                                <td>{{ object.width }} سانتی متر</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
+                            <div class="reviews-wrapper">
+                                <div class="row">
+                                    <div class="col-lg-6 mb--40">
+                                        <div class="axil-comment-area pro-desc-commnet-area">
+                                            <h5 class="title">{{ comments.count }} بررسی برای این محصول</h5>
+                                            {% if comments.count > 0 %}
+                                            <ul class="comment-list">
+                                                <!-- Start Single Comment  -->
+                                                {% for comment in comments %}
+                                                <li class="comment">
+                                                    <div class="comment-body">
+                                                        <div class="single-comment">
+                                                            <div class="comment-img">
+                                                                <img src="{% static 'images/avatar/avatar.png' %}"
+                                                                    alt="Author Images" width="70px" height="70px">
+                                                            </div>
+                                                            <div class="comment-inner">
+                                                                <h6 class="commenter">
+                                                                    <a class="hover-flip-item-wrapper" href="#">
+                                                                        <span class="hover-flip-item">
+                                                                            <span data-text="Cameron Williamson">{{ comment.user_name }}</span>
+                                                                        </span>
+                                                                    </a>
+                                                                </h6>
+                                                                <div class="comment-text">
+                                                                    <p>{{ comment.text_comment }}</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                {% endfor %}
+                                                <!-- End Single Comment  -->
+                                            </ul>
+                                                {% else %}
+                                                <div class="alert alert-info" role="alert">
+                                                   نظری برای مشاهده وجود ندارد, شما اولین نفر باشد.
+                                                </div>
+                                            {% endif %}
+
+                                        </div>
+
+                                        <!-- End .axil-commnet-area -->
+                                    </div>
+
+                                    <!-- End .col -->
+                                    <div class="col-lg-6 mb--40">
+                                        <!-- Start Comment Respond  -->
+                                        <div class="comment-respond pro-des-commend-respond mt--0">
+                                            <h5 class="title mb--30">نظر شما</h5>
+                                            <p>آدرس ایمیل شما منتشر نخواهد شد.زمینه های مورد نیاز مشخص شده اند *</p>
+
+                                            <form method="POST" action="{% url 'comment_malile_khosh_kam:add-comment' object.id %}">
+                                                {% csrf_token %}
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div class="form-group">
+                                                            <label>نظر شما</label>
+                                                            {{ form.text_comment}}
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 col-md-6 col-12">
+                                                        <div class="form-group">
+                                                            <label>نام <span class="require">*</span></label>
+                                                               {{ form.user_name}}
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 col-md-6 col-12">
+                                                        <div class="form-group">
+                                                            <label>ایمیل <span class="require">*</span> </label>
+                                                            {{ form.email_comment}}
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-12">
+                                                        <div class="form-submit">
+                                                            <button type="submit" id="submit"
+                                                                class="axil-btn btn-bg-primary w-auto">ثبت نظر</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <!-- End Comment Respond  -->
+                                    </div>
+                                    <!-- End .col -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- woocommerce-tabs -->
+
+        </div>
+        <!-- End Shop Area  -->
+
+        <!-- Start Recently Viewed Product Area  -->
+        <div class="axil-product-area bg-color-white axil-section-gap pb--50 pb_sm--30">
+            <div class="container">
+                <div class="section-title-wrapper">
+                    <span class="title-highlighter highlighter-primary"><i class="far fa-shopping-basket"></i>
+                        مرتبط</span>
+                    <h2 class="title">محصولات مرتبط</h2>
+                </div>
+                <div class="recent-product-activation slick-layout-wrapper--15 axil-slick-arrow arrow-top-slide">
+                    <div class="slick-single-layout">
+                        <div class="axil-product">
+                            <div class="thumbnail">
+                                <a href="single-product.html">
+                                    <img src="{% static 'images/product/electric/product-01.png' %}" alt="Product Images">
+                                </a>
+                                <div class="label-block label-right">
+                                    <div class="product-badget">20% تخفیف</div>
+                                </div>
+                                <div class="product-hover-action">
+                                    <ul class="cart-action">
+                                        <li class="wishlist"><a href="wishlist.html"><i class="far fa-heart"></i></a>
+                                        </li>
+                                        <li class="select-option"><a href="cart.html">اضافه به سبد خرید</a></li>
+                                        <li class="quickview"><a href="#" data-bs-toggle="modal"
+                                                data-bs-target="#quick-view-modal"><i class="far fa-eye"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="product-content">
+                                <div class="inner">
+                                    <h5 class="title"><a href="single-product.html">هدفون بی سیم</a></h5>
+                                    <div class="product-price-variant">
+                                        <span class="price old-price">35.000</span>
+                                        <span class="price current-price">30.000</span>
+                                    </div>
+                                    <div class="color-variant-wrapper">
+                                        <ul class="color-variant">
+                                            <li class="color-extra-01 active"><span><span class="color"></span></span>
+                                            </li>
+                                            <li class="color-extra-02"><span><span class="color"></span></span>
+                                            </li>
+                                            <li class="color-extra-03"><span><span class="color"></span></span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End .slick-single-layout -->
+                    <div class="slick-single-layout">
+                        <div class="axil-product">
+                            <div class="thumbnail">
+                                <a href="single-product.html">
+                                    <img src="{% static 'images/product/electric/product-02.png' %}" alt="Product Images">
+                                </a>
+                                <div class="label-block label-right">
+                                    <div class="product-badget">40% تخفیف</div>
+                                </div>
+                                <div class="product-hover-action">
+                                    <ul class="cart-action">
+                                        <li class="wishlist"><a href="wishlist.html"><i class="far fa-heart"></i></a>
+                                        </li>
+                                        <li class="select-option"><a href="cart.html">اضافه به سبد خرید</a></li>
+                                        <li class="quickview"><a href="#" data-bs-toggle="modal"
+                                                data-bs-target="#quick-view-modal"><i class="far fa-eye"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="product-content">
+                                <div class="inner">
+                                    <h5 class="title"><a href="single-product.html">کنترلر نتفلیکس</a></h5>
+                                    <div class="product-price-variant">
+                                        <span class="price old-price">80.000</span>
+                                        <span class="price current-price">50.000</span>
+                                    </div>
+                                    <div class="color-variant-wrapper">
+                                        <ul class="color-variant">
+                                            <li class="color-extra-01 active"><span><span class="color"></span></span>
+                                            </li>
+                                            <li class="color-extra-02"><span><span class="color"></span></span>
+                                            </li>
+                                            <li class="color-extra-03"><span><span class="color"></span></span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End .slick-single-layout -->
+                    <div class="slick-single-layout">
+                        <div class="axil-product">
+                            <div class="thumbnail">
+                                <a href="single-product.html">
+                                    <img src="{% static 'images/product/electric/product-03.png' %}" alt="Product Images">
+                                </a>
+                                <div class="label-block label-right">
+                                    <div class="product-badget">30% تخفیف</div>
+                                </div>
+                                <div class="product-hover-action">
+                                    <ul class="cart-action">
+                                        <li class="wishlist"><a href="wishlist.html"><i class="far fa-heart"></i></a>
+                                        </li>
+                                        <li class="select-option"><a href="cart.html">اضافه به سبد خرید</a></li>
+                                        <li class="quickview"><a href="#" data-bs-toggle="modal"
+                                                data-bs-target="#quick-view-modal"><i class="far fa-eye"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="product-content">
+                                <div class="inner">
+                                    <h5 class="title"><a href="single-product.html">دوربین HD</a></h5>
+                                    <div class="product-price-variant">
+                                        <span class="price old-price">60.000</span>
+                                        <span class="price current-price">45.000</span>
+                                    </div>
+                                    <div class="color-variant-wrapper">
+                                        <ul class="color-variant">
+                                            <li class="color-extra-01 active"><span><span class="color"></span></span>
+                                            </li>
+                                            <li class="color-extra-02"><span><span class="color"></span></span>
+                                            </li>
+                                            <li class="color-extra-03"><span><span class="color"></span></span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End .slick-single-layout -->
+                    <div class="slick-single-layout">
+                        <div class="axil-product">
+                            <div class="thumbnail">
+                                <a href="single-product.html">
+                                    <img src="{% static 'images/product/electric/product-04.png' %}" alt="Product Images">
+                                </a>
+                                <div class="label-block label-right">
+                                    <div class="product-badget">50% تخفیف</div>
+                                </div>
+                                <div class="product-hover-action">
+                                    <ul class="cart-action">
+                                        <li class="wishlist"><a href="wishlist.html"><i class="far fa-heart"></i></a>
+                                        </li>
+                                        <li class="select-option"><a href="cart.html">اضافه به سبد خرید</a></li>
+                                        <li class="quickview"><a href="#" data-bs-toggle="modal"
+                                                data-bs-target="#quick-view-modal"><i class="far fa-eye"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="product-content">
+                                <div class="inner">
+                                    <h5 class="title"><a href="single-product.html">کنترلر پلی استیشن 4</a></h5>
+                                    <div class="product-price-variant">
+                                        <span class="price old-price">70.000</span>
+                                        <span class="price current-price">35.000</span>
+                                    </div>
+                                    <div class="color-variant-wrapper">
+                                        <ul class="color-variant">
+                                            <li class="color-extra-01 active"><span><span class="color"></span></span>
+                                            </li>
+                                            <li class="color-extra-02"><span><span class="color"></span></span>
+                                            </li>
+                                            <li class="color-extra-03"><span><span class="color"></span></span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End .slick-single-layout -->
+                    <div class="slick-single-layout">
+                        <div class="axil-product">
+                            <div class="thumbnail">
+                                <a href="single-product.html">
+                                    <img src="{% static 'images/product/electric/product-05.png' %}" alt="Product Images">
+                                </a>
+                                <div class="label-block label-right">
+                                    <div class="product-badget">25% تخفیف</div>
+                                </div>
+                                <div class="product-hover-action">
+                                    <ul class="cart-action">
+                                        <li class="wishlist"><a href="wishlist.html"><i class="far fa-heart"></i></a>
+                                        </li>
+                                        <li class="select-option"><a href="cart.html">اضافه به سبد خرید</a></li>
+                                        <li class="quickview"><a href="#" data-bs-toggle="modal"
+                                                data-bs-target="#quick-view-modal"><i class="far fa-eye"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="product-content">
+                                <div class="inner">
+                                    <h5 class="title"><a href="single-product.html">کنترلر پلی استیشن 5</a></h5>
+                                    <div class="product-price-variant">
+                                        <span class="price old-price">50.000</span>
+                                        <span class="price current-price">30.000</span>
+                                    </div>
+                                    <div class="color-variant-wrapper">
+                                        <ul class="color-variant">
+                                            <li class="color-extra-01 active"><span><span class="color"></span></span>
+                                            </li>
+                                            <li class="color-extra-02"><span><span class="color"></span></span>
+                                            </li>
+                                            <li class="color-extra-03"><span><span class="color"></span></span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End .slick-single-layout -->
+                    <!-- End .slick-single-layout -->
+                    <div class="slick-single-layout">
+                        <div class="axil-product">
+                            <div class="thumbnail">
+                                <a href="single-product.html">
+                                    <img src="{% static 'images/product/electric/product-03.png' %}" alt="Product Images">
+                                </a>
+                                <div class="label-block label-right">
+                                    <div class="product-badget">30% تخفیف</div>
+                                </div>
+                                <div class="product-hover-action">
+                                    <ul class="cart-action">
+                                        <li class="wishlist"><a href="wishlist.html"><i class="far fa-heart"></i></a>
+                                        </li>
+                                        <li class="select-option"><a href="cart.html">اضافه به سبد خرید</a></li>
+                                        <li class="quickview"><a href="#" data-bs-toggle="modal"
+                                                data-bs-target="#quick-view-modal"><i class="far fa-eye"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="product-content">
+                                <div class="inner">
+                                    <h5 class="title"><a href="single-product.html">دوربین HD</a></h5>
+                                    <div class="product-price-variant">
+                                        <span class="price old-price">60.000</span>
+                                        <span class="price current-price">45.000</span>
+                                    </div>
+                                    <div class="color-variant-wrapper">
+                                        <ul class="color-variant">
+                                            <li class="color-extra-01 active"><span><span class="color"></span></span>
+                                            </li>
+                                            <li class="color-extra-02"><span><span class="color"></span></span>
+                                            </li>
+                                            <li class="color-extra-03"><span><span class="color"></span></span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End .slick-single-layout -->
+                    <div class="slick-single-layout">
+                        <div class="axil-product">
+                            <div class="thumbnail">
+                                <a href="single-product.html">
+                                    <img src="{% static 'images/product/electric/product-04.png' %}" alt="Product Images">
+                                </a>
+                                <div class="label-block label-right">
+                                    <div class="product-badget">50% تخفیف</div>
+                                </div>
+                                <div class="product-hover-action">
+                                    <ul class="cart-action">
+                                        <li class="wishlist"><a href="wishlist.html"><i class="far fa-heart"></i></a>
+                                        </li>
+                                        <li class="select-option"><a href="cart.html">اضافه به سبد خرید</a></li>
+                                        <li class="quickview"><a href="#" data-bs-toggle="modal"
+                                                data-bs-target="#quick-view-modal"><i class="far fa-eye"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="product-content">
+                                <div class="inner">
+                                    <h5 class="title"><a href="single-product.html">کنترلر پلی استیشن</a></h5>
+                                    <div class="product-price-variant">
+                                        <span class="price old-price">70.000</span>
+                                        <span class="price current-price">35.000</span>
+                                    </div>
+                                    <div class="color-variant-wrapper">
+                                        <ul class="color-variant">
+                                            <li class="color-extra-01 active"><span><span class="color"></span></span>
+                                            </li>
+                                            <li class="color-extra-02"><span><span class="color"></span></span>
+                                            </li>
+                                            <li class="color-extra-03"><span><span class="color"></span></span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End .slick-single-layout -->
+                    <div class="slick-single-layout">
+                        <div class="axil-product">
+                            <div class="thumbnail">
+                                <a href="single-product.html">
+                                    <img src="{% static 'images/product/electric/product-05.png' %}" alt="Product Images">
+                                </a>
+                                <div class="label-block label-right">
+                                    <div class="product-badget">25% تخفیف</div>
+                                </div>
+                                <div class="product-hover-action">
+                                    <ul class="cart-action">
+                                        <li class="wishlist"><a href="wishlist.html"><i class="far fa-heart"></i></a>
+                                        </li>
+                                        <li class="select-option"><a href="cart.html">اضافه به سبد خرید</a></li>
+                                        <li class="quickview"><a href="#" data-bs-toggle="modal"
+                                                data-bs-target="#quick-view-modal"><i class="far fa-eye"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="product-content">
+                                <div class="inner">
+                                    <h5 class="title"><a href="single-product.html">کنترلر</a></h5>
+                                    <div class="product-price-variant">
+                                        <span class="price old-price">50.000</span>
+                                        <span class="price current-price">38.000</span>
+                                    </div>
+                                    <div class="color-variant-wrapper">
+                                        <ul class="color-variant">
+                                            <li class="color-extra-01 active"><span><span class="color"></span></span>
+                                            </li>
+                                            <li class="color-extra-02"><span><span class="color"></span></span>
+                                            </li>
+                                            <li class="color-extra-03"><span><span class="color"></span></span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End .slick-single-layout -->
+
+                </div>
+            </div>
+        </div>
+        <!-- End Recently Viewed Product Area  -->
+    {% endblock main_khosh_kam %}
+
+{% block footer_khosh_kam %}
+    {% include 'khosh_kam/base/footer_base.html' %}
+{% endblock footer_khosh_kam %}
+
+{% block js_khosh_kam %}
+   <!-- Modernizer JS -->
+    <script src="{% static 'js/vendor/modernizr.min.js' %}"></script>
+    <!-- jQuery JS -->
+    <script src="{% static 'js/vendor/jquery.js' %}"></script>
+    <!-- Bootstrap JS -->
+    <script src="{% static 'js/vendor/popper.min.js' %}"></script>
+    <script src="{% static 'js/vendor/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/vendor/slick.min.js' %}"></script>
+    <script src="{% static 'js/vendor/js.cookie.js' %}"></script>
+    <!-- <script src="assets/js/vendor/jquery.style.switcher.js"></script> -->
+    <script src="{% static 'js/vendor/jquery-ui.min.js' %}"></script>
+    <script src="{% static 'js/vendor/jquery.countdown.min.js' %}"></script>
+    <script src="{% static 'js/vendor/sal.js' %}"></script>
+    <script src="{% static 'js/vendor/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'js/vendor/imagesloaded.pkgd.min.js' %}"></script>
+    <script src="{% static 'js/vendor/isotope.pkgd.min.js' %}"></script>
+    <script src="{% static 'js/vendor/counterup.js' %}"></script>
+    <script src="{% static 'js/vendor/waypoints.min.js' %}"></script>
+
+    <!-- Main JS -->
+    <script src="{% static 'js/rtl-main.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
+    {% load sweetify %}
+    {% sweetify %}
+{% endblock js_khosh_kam %}

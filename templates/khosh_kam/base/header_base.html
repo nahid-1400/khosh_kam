@@ -1,0 +1,125 @@
+{% load static %}
+   <header class="header axil-header header-style-4">
+       
+        <!-- Start Header Top Area  -->
+<div class="axil-header-top">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-4 col-12">
+                        <div class="header-top-dropdown dropdown-box-style">
+                            
+                        
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-5">
+                        <div class="header-brand">
+                            <a href="index-2.html" class="logo logo-dark">
+                                <img src="{% static 'images/logo/logo.png' %}" alt="Site Logo">
+                            </a>
+                            <a href="index-2.html" class="logo logo-light">
+                                <img src={% static 'images/logo/logo-light.png' %}" alt="Site Logo">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-7">
+                        <div class="header-action">
+                            <ul class="action-list">
+                                <li class="axil-search">
+                                    <a href="javascript:void(0)" class="header-search-icon" title="Search">
+                                        <i class="flaticon-magnifying-glass"></i>
+                                    </a>
+                                </li>
+                                <li class="wishlist">
+                                    <a href="wishlist.html">
+                                        <i class="flaticon-heart"></i>
+                                    </a>
+                                </li>
+                                <li class="shopping-cart">
+                                    <a href="#" class="cart-dropdown-btn">
+                                        <span class="cart-count">3</span>
+                                        <i class="flaticon-shopping-cart"></i>
+                                    </a>
+                                </li>
+                                <li class="my-account">
+                                    <a href="javascript:void(0)">
+                                        <i class="flaticon-person"></i>
+                                    </a>
+                                    <div class="my-account-dropdown">
+                                        <span class="title">دسترسی سریع</span>
+                                        <ul>
+                                            <li>
+                                                <a href="my-account.html">پروفایل من</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">روند مرجوعی</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">پشتیبانی</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">زبان</a>
+                                            </li>
+                                        </ul>
+                                        <div class="login-btn">
+                                            <a href="sign-in.html" class="axil-btn btn-bg-primary">ورود</a>
+                                        </div>
+                                        <div class="reg-footer text-center">ثبت نام نکرده اید؟ <a href="sign-up.html"
+                                                class="btn-link">ثبت نام.</a></div>
+                                    </div>
+                                </li>
+                                <li class="axil-mobile-toggle">
+                                    <button class="menu-btn mobile-nav-toggler">
+                                        <i class="flaticon-menu-2"></i>
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Header Top Area  -->
+
+        <!-- Start Mainmenu Area  -->
+        <div id="axil-sticky-placeholder"></div>
+        <div class="axil-mainmenu">
+            <div class="container">
+                <div class="header-navbar">
+                    <div class="header-main-nav">
+                        <!-- Start Mainmanu Nav -->
+                        <nav class="mainmenu-nav">
+                            <button class="mobile-close-btn mobile-nav-toggler"><i class="fas fa-times"></i></button>
+                            <div class="mobile-nav-brand">
+                                <a href="index-2.html" class="logo">
+                                    <img src="{% static 'images/logo/logo.png' %}" alt="Site Logo">
+                                </a>
+                            </div>
+                            <ul class="mainmenu">
+                                <li>
+                                    <a href="{% url 'home' %}">خانه</a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'malile_khosh_kam:all-maliles' %}">همه محصولات</a>
+                                </li>
+                                <li><a href="{% url 'about_us_khosh_kam:about_us' %}">درباه ما</a></li>
+                                <li class="menu-item-has-children">
+                                    <a href="#">دسته بندی</a>
+                                    <ul class="axil-submenu">
+                                        {% for cat in category %}
+                                        <li><a href="{%  url 'malile_khosh_kam:malile-category' cat.slug %}">{{ cat.title }} </a></li>
+                                        {% endfor %}
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="{% url 'article:article_list' %}">مقالات</a>
+                                </li>
+                                <li><a href="contact.html">ارتباط با ما</a></li>
+                            </ul>
+                        </nav>
+                        <!-- End Mainmanu Nav -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Mainmenu Area  -->
+    </header>

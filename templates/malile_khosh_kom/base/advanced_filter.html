@@ -1,0 +1,63 @@
+<div class="axil-shop-area axil-section-gap bg-color-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="axil-shop-sidebar">
+                    <div class="d-lg-none">
+                        <button class="sidebar-close filter-close-btn"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="toggle-list product-categories active">
+                        <h6 class="title">دسته بندی ها</h6>
+                        <div class="shop-submenu">
+                            <ul>
+                                {% for cat in category %}
+                                <li class="current-cat"><a href="#"> {{ cat.title }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+
+                  
+                    <div class="toggle-list product-price-range active">
+                        <h6 class="title">قیمت</h6>
+                        <div class="shop-submenu">
+                            <ul>
+                                <li class="chosen"><a href="#">30</a></li>
+                                <li><a href="#">5000</a></li>
+                            </ul>
+                            <form action="#" class="mt--25">
+                                <div id="slider-range"></div>
+                                <div class="flex-center mt--20">
+                                    <span class="input-range">قیمت: </span>
+                                    <input type="text" id="amount" class="amount-range" readonly>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <button class="axil-btn btn-bg-primary">ریست</button>
+                </div>
+                <!-- End .axil-shop-sidebar -->
+            </div>
+            <div class="col-lg-9">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="axil-shop-top mb--40">
+                            <div
+                                class="category-select align-items-center justify-content-lg-end justify-content-between">
+                                <!-- Start Single Select  -->
+                                <span class="filter-results">نمایش {{ object_list.all.count}} از {{ page_obj.paginator.count }} محصول</span>
+                                <select class="single-select">
+                                    <option>آخرین</option>
+                                    <option>جدیدترین</option>
+                                    <option>نام</option>
+                                    <option>قیمت</option>
+                                </select>
+                                <!-- End Single Select  -->
+                            </div>
+                            <div class="d-lg-none">
+                                <button class="product-filter-mobile filter-toggle"><i
+                                        class="fas fa-filter"></i> فیلتر</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
