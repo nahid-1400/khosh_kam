@@ -47,8 +47,8 @@ INSTALLED_APPS = [
     # khosh kam library
      'sweetify',
      'django_render_partial',
-
-]
+     'django_bootstrap_icons'
+,]
 
 SWEETIFY_SWEETALERT_LIBRARY = 'sweetalert2'
 

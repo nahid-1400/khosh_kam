@@ -1,0 +1,323 @@
+
+{% extends 'khosh_kam/base/base.html' %}
+{% load static %}
+{% load bootstrap_icons %}
+{% load render_partial %}
+{% block title_khosh_kam %}
+{{ object.title }} مقالات | ملیله خوش کام
+{% endblock title_khosh_kam %}
+    
+{% block style_header_base %}
+    <link rel="stylesheet" href="{% static 'css/vendor/bootstrap.rtl.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/vendor/font-awesome.css' %}">
+    <link rel="stylesheet" href="{% static 'css/vendor/flaticon/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'css/vendor/slick.css' %}">
+    <link rel="stylesheet" href="{% static 'css/vendor/slick-theme.css' %}">
+    <link rel="stylesheet" href="{% static 'css/vendor/jquery-ui.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/vendor/sal.css' %}">
+    <link rel="stylesheet" href="{% static 'css/vendor/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'css/vendor/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.min.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+{% endblock style_header_base %}
+    
+{% block header_khosh_kam %}
+    {% render_partial 'header_base' %}
+{% endblock header_khosh_kam %}
+{% block main_khosh_kam %}
+        <!-- Start Blog Area  -->
+        <div class="axil-blog-area axil-section-gap">
+            <div class="axil-single-post post-formate post-standard">
+                <div class="container">
+                    <div class="content-block">
+                        <div class="inner">
+                            <div class="post-thumbnail">
+                                <img src="{{ object.image.url }}" alt="blog Images">
+                            </div>
+                            <!-- End .thumbnail -->
+                        </div>
+                    </div>
+                    <!-- End .content-blog -->
+                </div>
+            </div>
+            <!-- End .single-post -->
+            <div class="post-single-wrapper position-relative">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-1">
+                            <div class="d-flex flex-wrap align-content-start h-100">
+                                <div class="position-sticky sticky-top">
+                                    <div class="post-details__social-share">
+                                        <span class="share-on-text">اشتراک در:</span>
+                                        <div class="social-share">
+                                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                            <a href="#"><i class="fab fa-instagram"></i></a>
+                                            <a href="#"><i class="fab fa-twitter"></i></a>
+                                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                            <a href="#"><i class="fab fa-discord"></i></a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-7 axil-post-wrapper">
+                            <div class="post-heading">
+                                <h2 class="title">{{ object.title }}</h2>
+                                <div class="axil-post-meta">
+                                    <div class="post-author-avatar">
+                                        <img src="{{ object.author.profile_image.url }}" alt="Author Images">
+                                    </div>
+                                    <div class="post-meta-content">
+                                        <h6 class="author-title">
+                                            <a>{{ object.author.username }}</a>
+                                        </h6>
+                                        <ul class="post-meta-list">
+                                            <li>{{ object.published_time }}</li>
+                                            <li>300 هزار بازدید</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div style="float: left;margin-top: -70px;">
+                                
+                                <a href="#" class="axil-btn wishlist-btn"><i class="far fa-heart"></i></a>
+                            </div>
+                            </div>
+                        <p style=" text-align: justify;">{{ object.description|striptags|safe }}</p>
+                        
+
+
+                         <div style="padding-bottom: 50px;padding-top: 25px;">
+                        <div style="float: left;">
+                            {% bs_icon 'heart' size='25' %}
+                        </div>
+                        <h6 style="float: left;padding-left: 15px;margin-top: 5px;">0</h6>
+
+                    </div>
+                    <div style="padding-bottom: 50px;">
+                        <div class="axil-single-widget mt--40 widget_tag_cloud" >
+                            <h4 class="widget-title">تگ ها</h4>
+                            <div class="tagcloud">
+                                <a href="#">طراحی</a>
+                                <a href="#">HTML</a>
+                                <a href="#">گرافیک</a>
+                                <a href="#">توسعه</a>
+                                <a href="#">UI/UX طراحی</a>
+                                <a href="#">فروشگاه</a>
+                                <a href="#">CSS</a>
+                                <a href="#">جاوا اسکریپت</a>
+                            </div>
+                        </div>
+                    </div>
+
+                           
+                            <!-- End .axil-commnet-area -->
+
+                        </div>
+
+    <div class="col-lg-4">
+        <!-- Start Sidebar Area  -->
+      {% render_partial 'article_navbar' %}
+        </div>
+        <!-- End Blog Area  -->
+
+        <!-- Start Related Blog Area  -->
+        <div class="related-blog-area bg-color-white pb--60 pb_sm--40">
+            <div class="container">
+                <div class="section-title-wrapper mb--70 mb_sm--40 pr--110">
+                    <span class="title-highlighter highlighter-primary mb--10"> <i class="fal fa-bell"></i>اخبار</span>
+                    <h3 class="mb--25">پست های مرتبط</h3>
+                </div>
+                <div class="related-blog-activation slick-layout-wrapper--15 axil-slick-arrow  arrow-top-slide">
+                    <div class="slick-single-layout">
+                        <div class="content-blog">
+                            <div class="inner">
+                                <div class="axil-gallery-activation axil-slick-arrow arrow-between-side">
+                                    <!-- Start Single Thumb  -->
+                                    <div class="thumbnail">
+                                        <a href="blog-details.html">
+                                            <img src="assets/images/blog/blog-07.png" alt="Blog Images">
+                                        </a>
+                                    </div>
+                                    <!-- End Single Thumb  -->
+                                </div>
+                                <div class="content">
+                                    <h5 class="title"><a href="blog-details.html">با یک پیچ و تاب غیرقانونی ، Ambush®
+                                            میراث در فضای باز Converse را برجسته می کند</a></h5>
+                                    <div class="axil-post-meta">
+                                        <div class="post-author-avatar">
+                                            <img src="assets/images/blog/author-image-1.png" alt="Author Images">
+                                        </div>
+                                        <div class="post-meta-content">
+                                            <h6 class="author-title">
+                                                <a href="#">مبینا احمدی</a>
+                                            </h6>
+                                            <ul class="post-meta-list">
+                                                <li>17 آبان 1400</li>
+                                                <li>300 هزار بازدید</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End .slick-single-layout -->
+                    <div class="slick-single-layout">
+                        <div class="content-blog">
+                            <div class="inner">
+                                <div class="axil-gallery-activation axil-slick-arrow arrow-between-side">
+                                    <!-- Start Single Thumb  -->
+                                    <div class="thumbnail">
+                                        <a href="blog-details.html">
+                                            <img src="assets/images/blog/blog-08.png" alt="Blog Images">
+                                        </a>
+                                    </div>
+                                    <!-- End Single Thumb  -->
+                                </div>
+                                <div class="content">
+                                    <h5 class="title"><a href="blog-details.html">دو و میدانی UCLA به چند سال می رسد
+                                            توافق با Nike ، Inc. و Jordan Brand</a></h5>
+                                    <div class="axil-post-meta">
+                                        <div class="post-author-avatar">
+                                            <img src="assets/images/blog/author-image-2.png" alt="Author Images">
+                                        </div>
+                                        <div class="post-meta-content">
+                                            <h6 class="author-title">
+                                                <a href="#">احمد احمدی</a>
+                                            </h6>
+                                            <ul class="post-meta-list">
+                                                <li>28 آذر 1401</li>
+                                                <li>200 هزار بازدید</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End .slick-single-layout -->
+                    <div class="slick-single-layout">
+                        <div class="content-blog">
+                            <div class="inner">
+                                <div class="axil-gallery-activation axil-slick-arrow arrow-between-side">
+                                    <!-- Start Single Thumb  -->
+                                    <div class="thumbnail">
+                                        <a href="blog-details.html">
+                                            <img src="assets/images/blog/blog-09.png" alt="Blog Images">
+                                        </a>
+                                    </div>
+                                    <!-- End Single Thumb  -->
+                                </div>
+                                <div class="content">
+                                    <h5 class="title"><a href="blog-details.html">تاریخ شفاهی از هدف دور
+                                            پیام توسط افرادی که آنجا بودند</a></h5>
+                                    <div class="axil-post-meta">
+                                        <div class="post-author-avatar">
+                                            <img src="assets/images/blog/author-image-3.png" alt="Author Images">
+                                        </div>
+                                        <div class="post-meta-content">
+                                            <h6 class="author-title">
+                                                <a href="#">احمد احمدی</a>
+                                            </h6>
+                                            <ul class="post-meta-list">
+                                                <li>20 مهر 1401</li>
+                                                <li>500 هزار بازدید</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End .slick-single-layout -->
+                    <div class="slick-single-layout">
+                        <div class="content-blog">
+                            <div class="inner">
+                                <div class="axil-gallery-activation axil-slick-arrow arrow-between-side">
+                                    <!-- Start Single Thumb  -->
+                                    <div class="thumbnail">
+                                        <a href="blog-details.html">
+                                            <img src="assets/images/blog/blog-08.png" alt="Blog Images">
+                                        </a>
+                                    </div>
+                                    <!-- End Single Thumb  -->
+                                </div>
+                                <div class="content">
+                                    <h5 class="title"><a href="blog-details.html">دو و میدانی UCLA به چند سال می رسد
+                                            توافق با Nike ، Inc. و Jordan Brand</a></h5>
+                                    <div class="axil-post-meta">
+                                        <div class="post-author-avatar">
+                                            <img src="assets/images/blog/author-image-2.png" alt="Author Images">
+                                        </div>
+                                        <div class="post-meta-content">
+                                            <h6 class="author-title">
+                                                <a href="#">احمد احمدی</a>
+                                            </h6>
+                                            <ul class="post-meta-list">
+                                                <li>28 آذر 1401</li>
+                                                <li>200 هزار بازدید</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End .slick-single-layout -->
+                </div>
+            </div>
+        </div>
+        <!-- End Related Blog Area  -->
+
+        <!-- Start Axil Newsletter Area  -->
+        <div class="axil-newsletter-area axil-section-gap pt--0">
+            <div class="container">
+                <div class="etrade-newsletter-wrapper bg_image bg_image--5">
+                    <div class="newsletter-content">
+                        <span class="title-highlighter highlighter-primary2"><i
+                                class="fas fa-envelope-open"></i>خبرنامه</span>
+                        <h2 class="title mb--40 mb_sm--30">دریافت آپدیت هفتگی</h2>
+                        <div class="input-group newsletter-form">
+                            <div class="position-relative newsletter-inner mb--15">
+                                <input placeholder="example@gmail.com" type="text">
+                            </div>
+                            <button type="submit" class="axil-btn mb--15">اشتراک</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End .container -->
+        </div>
+        <!-- End Axil Newsletter Area  -->
+    {% endblock main_khosh_kam %}
+        <!-- Product Quick View Modal End -->
+{% block footer_khosh_kam %}
+    {% include 'khosh_kam/base/footer_base.html' %}
+{% endblock footer_khosh_kam %}
+    
+{% block js_khosh_kam %}
+       <!-- Modernizer JS -->
+        <script src="{% static 'js/vendor/modernizr.min.js' %}"></script>
+        <!-- jQuery JS -->
+        <script src="{% static 'js/vendor/jquery.js' %}"></script>
+        <!-- Bootstrap JS -->
+        <script src="{% static 'js/vendor/popper.min.js' %}"></script>
+        <script src="{% static 'js/vendor/bootstrap.min.js' %}"></script>
+        <script src="{% static 'js/vendor/slick.min.js' %}"></script>
+        <script src="{% static 'js/vendor/js.cookie.js' %}"></script>
+        <!-- <script src="assets/js/vendor/jquery.style.switcher.js"></script> -->
+        <script src="{% static 'js/vendor/jquery-ui.min.js' %}"></script>
+        <script src="{% static 'js/vendor/jquery.countdown.min.js' %}"></script>
+        <script src="{% static 'js/vendor/sal.js' %}"></script>
+        <script src="{% static 'js/vendor/jquery.magnific-popup.min.js' %}"></script>
+        <script src="{% static 'js/vendor/imagesloaded.pkgd.min.js' %}"></script>
+        <script src="{% static 'js/vendor/isotope.pkgd.min.js' %}"></script>
+        <script src="{% static 'js/vendor/counterup.js' %}"></script>
+        <script src="{% static 'js/vendor/waypoints.min.js' %}"></script>
+    
+        <!-- Main JS -->
+        <script src="{% static 'js/rtl-main.js' %}"></script>
+    
+{% endblock js_khosh_kam %}

@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.urls import path
-from malile_khosh_kam.views import MalileDetail, AllMalile, MalileSearch, MalileCateGory, advanced_filter, malile_favorites
+from malile_khosh_kam.views import MalileDetail, AllMalile, MalileSearch, MalileCateGory, advanced_filter, malile_favorites, filter
 
 app_name = 'malile_khosh_kam'
 
@@ -28,4 +28,5 @@ urlpatterns = [
     path('category/<slug>/page/<int:page>', MalileCateGory.as_view(), name='malile-category'),
     path('advanced_filter', advanced_filter, name='advanced-filter'),
     path('malile_favorites/<malile_id>', malile_favorites, name='malile-favorites'),
+    path('filter_malile',filter, name='filter')
 ]

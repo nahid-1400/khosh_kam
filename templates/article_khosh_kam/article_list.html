@@ -2,7 +2,7 @@
 {% load static %}
 {% load render_partial %}
 {% block title_khosh_kam %}
-{{ object.title }} | ملیله خوش کام
+{{ object.title }} مقالات | ملیله خوش کام
 {% endblock title_khosh_kam %}
 
     {% block style_header_base %}
@@ -52,7 +52,7 @@
                                 <div class="content-blog blog-grid">
                                     <div class="inner">
                                         <div class="thumbnail">
-                                            <a href="blog-details.html">
+                                            <a href="{% url 'malile_article:article' article.id %}">
                                                 <img src="{{ article.image.url }}" alt="Blog Images">
                                             </a>
                                             <div class="blog-category">
@@ -60,10 +60,10 @@
                                             </div>
                                         </div>
                                         <div class="content">
-                                            <h5 class="title"><a href="blog-details.html">{{ article.title}}</a></h5>
+                                            <h5 class="title"><a href="{% url 'malile_article:article' article.id %}">{{ article.title}}</a></h5>
 
                                             <div class="read-more-btn">
-                                                <a class="axil-btn right-icon" href="blog-details.html">بیشتر بخوانید <i
+                                                <a class="axil-btn right-icon" href="{% url 'malile_article:article' article.id %}">بیشتر بخوانید <i
                                                         class="fal fa-long-arrow-left"></i></a>
                                             </div>
                                         </div>

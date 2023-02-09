@@ -1,7 +1,7 @@
 from django.db import models
 from malile_khosh_kam.models import IPAddress
 from malile_khosh_kam.models import Malile
-
+from article_khosh_kam.models import Article
 class Comment(models.Model):
     malile = models.ForeignKey(Malile, default=None, on_delete=models.CASCADE, verbose_name='ملیله')
     user_name = models.CharField(max_length=200, verbose_name='نام کاربر')
@@ -16,3 +16,4 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.user_name
+

@@ -9,3 +9,7 @@ def home(request):
 def header_base(request):
     category = CateGory.objects.category_active()
     return render(request, 'khosh_kam/base/header_base.html', context={'category': category})
+
+
+def article_navbar(request):
+    return render(request, 'article_khosh_kam/base/article_navbar.html')

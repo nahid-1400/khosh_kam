@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 import malile_khosh_kam
-from khosh_kam.views import home, header_base
+from khosh_kam.views import home, header_base, article_navbar
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -24,11 +24,13 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'),
     path('header', header_base, name='header_base'),
+    path('article_navbar', article_navbar, name='article_navbar'),
     path('', include('malile_khosh_kam.urls')),
     path('', include('about_us_khosh_kam.urls')),
     path('comment/', include('comment_khosh_kam.urls')),
     path('order/', include('order_khosh_kam.urls')),
-    path('/', include('article_khosh_kam.urls')),
+    path('article/', include('article_khosh_kam.urls')),
+    
 
 ]
 if settings.DEBUG:

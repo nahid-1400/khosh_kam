@@ -45,7 +45,10 @@
         <div class="axil-shop-area axil-section-gap bg-color-white">
             <div class="container">
                 <div class="row">
+                   
                     <div class="col-lg-3">
+                        <form method="post">
+                            {% csrf_token %}
                         <div class="axil-shop-sidebar">
                             <div class="d-lg-none">
                                 <button class="sidebar-close filter-close-btn"><i class="fas fa-times"></i></button>
@@ -53,59 +56,20 @@
                             <div class="toggle-list product-categories active">
                                 <h6 class="title">دسته بندی ها</h6>
                                 <div class="shop-submenu">
+                                   
                                     <ul>
-                                        <li class="current-cat"><a href="#">ضد آفتاب</a></li>
-                                        <li><a href="#">مراقبت از شب</a></li>
-                                        <li><a href="#">درمان</a></li>
-                                        <li><a href="#">مرطوب کننده ها</a></li>
-                                        <li><a href="#">محافظ چشم</a></li>
-                                        <li><a href="#">ماسک</a></li>
-                                        <li><a href="#">ویژه</a></li>
-                                        <li><a href="#">حراج</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="toggle-list product-categories product-gender active">
-                                <h6 class="title">جنسیت</h6>
-                                <div class="shop-submenu">
-                                    <ul>
-                                        <li class="chosen"><a href="#">مردانه (40)</a></li>
-                                        <li><a href="#">زنانه (56)</a></li>
-                                        <li><a href="#">اسپرت (18)</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="toggle-list product-color active">
-                                <h6 class="title">رنگ</h6>
-                                <div class="shop-submenu">
-                                    <ul>
-                                        <li class="chosen"><a href="#" class="color-extra-01"></a></li>
-                                        <li><a href="#" class="color-extra-02"></a></li>
-                                        <li><a href="#" class="color-extra-03"></a></li>
-                                        <li><a href="#" class="color-extra-04"></a></li>
-                                        <li><a href="#" class="color-extra-05"></a></li>
-                                        <li><a href="#" class="color-extra-06"></a></li>
-                                        <li><a href="#" class="color-extra-07"></a></li>
-                                        <li><a href="#" class="color-extra-08"></a></li>
-                                        <li><a href="#" class="color-extra-09"></a></li>
-                                        <li><a href="#" class="color-extra-10"></a></li>
-                                        <li><a href="#" class="color-extra-11"></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="toggle-list product-size active">
-                                <h6 class="title">سایز</h6>
-                                <div class="shop-submenu">
-                                    <ul>
-                                        <li class="chosen"><a href="#">XS</a></li>
-                                        <li><a href="#">S</a></li>
-                                        <li><a href="#">M</a></li>
-                                        <li><a href="#">L</a></li>
-                                        <li><a href="#">XL</a></li>
-                                        <li><a href="#">XXL</a></li>
-                                        <li><a href="#">3XL</a></li>
-                                        <li><a href="#">4XL</a></li>
+                                        {% for cat in category %}
+                                        <li>
+                                        <div class="checkbox-wrapper-39" style="float: right;">
+                                            
+                                            <label>
+                                              <input type="checkbox" value="{{ cat.title }}" id="cat_chekck"/>
+                                              <span class="checkbox"> </span>
+                                            </label>
+                                          </div>
+                                          <div style="margin-right : 30px;">{{ cat.title }}</div>
+                                        </li>
+                                        {% endfor %}
                                     </ul>
                                 </div>
                             </div>
@@ -113,8 +77,8 @@
                                 <h6 class="title">قیمت</h6>
                                 <div class="shop-submenu">
                                     <ul>
-                                        <li class="chosen"><a href="#">30</a></li>
-                                        <li><a href="#">5000</a></li>
+                                        <li ><a href="#"></a></li>
+                                        <li><a href="#"></a></li>
                                     </ul>
                                     <form action="#" class="mt--25">
                                         <div id="slider-range"></div>
@@ -125,9 +89,35 @@
                                     </form>
                                 </div>
                             </div>
-                            <button class="axil-btn btn-bg-primary">ریست</button>
+                            <button type="submit" class="axil-btn btn-bg-primary">فیلتر</button>
                         </div>
                         <!-- End .axil-shop-sidebar -->
+                    </form>
+        
+                    </div>
+                    <div class="col-lg-9">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="axil-shop-top mb--40">
+                                    <div
+                                        class="category-select align-items-center justify-content-lg-end justify-content-between">
+                                        <!-- Start Single Select  -->
+                                        <span class="filter-results">نمایش {{ object_list.all.count}} از {{ page_obj.paginator.count }} محصول</span>
+                                        <select class="single-select">
+                                            <option>آخرین</option>
+                                            <option>جدیدترین</option>
+                                            <option>نام</option>
+                                            <option>قیمت</option>
+                                        </select>
+                                        <!-- End Single Select  -->
+                                    </div>
+                                    <div class="d-lg-none">
+                                        <button class="product-filter-mobile filter-toggle"><i
+                                                class="fas fa-filter"></i> فیلتر</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-lg-9">
                         <div class="row">

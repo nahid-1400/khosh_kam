@@ -6,6 +6,8 @@
 همه محصولات | ملیله خوش کام
 {% elif 'search' in request.path %}
 جستوجو | {{ q }} | ملیله خوش کام
+{% elif 'filter' in request.path %}
+فیلتر پیشرفته | ملیله خوش کام
 {% else %}
 دسته بندی | {{ category.title }} | ملیله خوش کام
 {% endif %}
@@ -22,6 +24,171 @@
     <link rel="stylesheet" href="{% static 'css/vendor/magnific-popup.css' %}">
     <link rel="stylesheet" href="{% static 'css/vendor/base.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.min.css' %}">
+
+
+
+<style>
+  .checkbox-wrapper-39 *,
+  .checkbox-wrapper-39 *::before,
+  .checkbox-wrapper-39 *::after {
+    box-sizing: border-box;
+  }
+
+  .checkbox-wrapper-39 label {
+    display: block;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+  }
+
+  .checkbox-wrapper-39 input {
+    visibility: hidden;
+    display: none;
+  }
+
+  .checkbox-wrapper-39 input:checked ~ .checkbox {
+   transform: rotate(45deg);
+   width: 14px;
+   margin-left: 12px;
+   border-color: #24c78e;
+   border-top-color: transparent;
+   border-left-color: transparent;
+   border-radius: 0;
+  }
+
+  .checkbox-wrapper-39 .checkbox {
+    display: block;
+    width: inherit;
+    height: inherit;
+    border: 3px solid #434343;
+    border-radius: 6px;
+    transition: all 0.375s;
+  }
+
+
+    </style>
+    <style>
+        /* Import Google Font - Poppins */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+.shop-submenu {
+    
+  align-items: center;
+  justify-content: center;
+}
+
+
+::selection {
+  color: #fff;
+  background: #17a2b8;
+  
+  
+}
+.wrapper {
+  width: 500px;
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px 25px 40px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1);
+}
+
+.price-input {
+  width: 100%;
+  display: flex;
+  margin: 40px 0 45px;
+}
+.price-input .field {
+  display: flex;
+  width: 100%;
+  height: 35px;
+  align-items: center;
+}
+.field input {
+  width: 100%;
+  height: 100%;
+  outline: none;
+  font-size: 12px;
+  margin-left: 2px;
+  border-radius: 2px;
+  text-align: center;
+  border: 1px solid #999;
+  -moz-appearance: textfield;
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+.price-input .separator {
+  width: 20px;
+  display: flex;
+  font-size: 12px;
+  align-items: center;
+  justify-content: center;
+}
+.slider {
+  height: 5px;
+  position: relative;
+  background: #ddd;
+  border-radius: 5px;
+}
+.slider .progress {
+  height: 100%;
+  left: 25%;
+  right: 25%;
+  position: absolute;
+  border-radius: 5px;
+  background: #17a2b8;
+}
+.range-input {
+  position: relative;
+}
+.range-input input {
+    position: absolute;
+    width: 100%;
+    height: 5px;
+    top: -5px;
+    background: none;
+    pointer-events: none;
+    -webkit-appearance: none;
+}
+input[type="range"]::-webkit-slider-thumb {
+  height: 17px;
+  width: 17px;
+  border-radius: 50%;
+  background: #17a2b8;
+  pointer-events: auto;
+  -webkit-appearance: none;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
+}
+input[type="range"]::-moz-range-thumb {
+  height: 17px;
+  width: 17px;
+  border: none;
+  border-radius: 50%;
+  background: #17a2b8;
+  pointer-events: auto;
+  -moz-appearance: none;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
+}
+
+
+
+#circle {
+      width: 30px;
+      height: 30px;
+      -webkit-border-radius: 25px;
+      -moz-border-radius: 25px;
+      border-radius: 25px;
+      background: #C0C0C0;
+    margin-bottom: 30px;
+    margin-right: 30px;
+    }
+    </style>
 
 {% endblock style_header_base %}
 
@@ -52,8 +219,35 @@
         <!-- End Breadcrumb Area  -->
 
         <!-- Start Shop Area  -->
-        {% render_partial 'malile_khosh_kam:advanced-filter' %}
+        <div class="axil-shop-area axil-section-gap bg-color-white">
 
+          {% render_partial 'malile_khosh_kam:advanced-filter' %}
+        
+                    </div>
+                    <div class="col-lg-9">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="axil-shop-top mb--40">
+                                    <div
+                                        class="category-select align-items-center justify-content-lg-end justify-content-between">
+                                        <!-- Start Single Select  -->
+                                        <span class="filter-results">نمایش {{ object_list.all.count}} از {{ page_obj.paginator.count }} محصول</span>
+                                        <select class="single-select">
+                                            <option>جدیدترین</option>
+                                            <option>قدیمی ترین</option>
+                                            <option>ارزان ترین</option>
+                                            <option>گران ترین</option>
+
+                                        </select>
+                                        <!-- End Single Select  -->
+                                    </div>
+                                    <div class="d-lg-none">
+                                        <button class="product-filter-mobile filter-toggle"><i
+                                                class="fas fa-filter"></i> فیلتر</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
     
                         <!-- End .row -->
                         <div class="row row--15">
@@ -158,7 +352,7 @@
     {% endblock main_khosh_kam %}
 
 {% block footer_khosh_kam %}
-    {% include 'khosh_kam/base/footer_base.html' %}
+{% include 'khosh_kam/base/footer_base.html' %}
 {% endblock footer_khosh_kam %}
 
 {% block js_khosh_kam %}
@@ -183,5 +377,48 @@
 
     <!-- Main JS -->
     <script src="{% static 'js/rtl-main.js' %}"></script>
+<script>
+    const rangeInput = document.querySelectorAll(".range-input input"),
+  priceInput = document.querySelectorAll(".price-input input"),
+  range = document.querySelector(".slider .progress");
+let priceGap = 1000;
 
+priceInput.forEach((input) => {
+  input.addEventListener("input", (e) => {
+    let minPrice = parseInt(priceInput[0].value),
+      maxPrice = parseInt(priceInput[1].value);
+
+    if (maxPrice - minPrice >= priceGap && maxPrice <= rangeInput[1].max) {
+      if (e.target.className === "input-min") {
+        rangeInput[0].value = minPrice;
+        range.style.left = (minPrice / rangeInput[0].max) * 100 + "%";
+      } else {
+        rangeInput[1].value = maxPrice;
+        range.style.right = 100 - (maxPrice / rangeInput[1].max) * 100 + "%";
+      }
+    }
+  });
+});
+
+rangeInput.forEach((input) => {
+  input.addEventListener("input", (e) => {
+    let minVal = parseInt(rangeInput[0].value),
+      maxVal = parseInt(rangeInput[1].value);
+
+    if (maxVal - minVal < priceGap) {
+      if (e.target.className === "range-min") {
+        rangeInput[0].value = maxVal - priceGap;
+      } else {
+        rangeInput[1].value = minVal + priceGap;
+      }
+    } else {
+      priceInput[0].value = minVal;
+      priceInput[1].value = maxVal;
+      range.style.left = (minVal / rangeInput[0].max) * 100 + "%";
+      range.style.right = 100 - (maxVal / rangeInput[1].max) * 100 + "%";
+    }
+  });
+});
+
+</script>
 {% endblock js_khosh_kam %}

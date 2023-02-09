@@ -18,14 +18,17 @@
     <link rel="stylesheet" href="{% static 'css/style.min.css' %}">
     <style>
         input[type="number"] {
-    height: 100px;
-
-
-}
-
-
-
-
+    height: 100px;}
+    #circle {
+      width: 30px;
+      height: 30px;
+      -webkit-border-radius: 25px;
+      -moz-border-radius: 25px;
+      border-radius: 25px;
+      background: #C0C0C0;
+    margin-bottom: 30px;
+    margin-right: 30px;
+    }
     </style>
 {% endblock style_header_base %}
 
@@ -88,19 +91,13 @@
                                         {% endif %}
                                             </ul>
                                   <!-- Start Product Variation  -->
-                                        <div class="product-variation">
-                                            <h6 class="title">رنگ:</h6>
-                                            <div class="color-variant-wrapper">
-                                                <ul class="color-variant">
-                                                    <li class="color-extra-01 active"><span><span class="color" style="background-color:#C0C0C0;"></span></span>
-                                                    </li>
-
+                                            <h6 class="title" style="float: right;">رنگ:</h6>
+                                                <ul class="color-variant" >
+                                                    <div id="circle"></div>
                                                 </ul>
-                                            </div>
-                                        </div>
                                         <!-- End Product Variation  -->
 
-                                    <p class="description mb--40">{{ object.descriptions|striptags|safe}}</p>
+                                    <p class="description mb--40" style="text-align: justify;">{{ object.descriptions|striptags|safe}}</p>
 
                                     <!-- Start Product Action Wrapper  -->
                                     <div class="product-action-wrapper d-flex-center">
@@ -109,7 +106,7 @@
                                          <form method="post" action="{% url 'order_khosh_kam:add-order' object.id %}">
                                             {% csrf_token %}
                                         <!-- End Quentity Action  -->
-                                        <div style="float:right;">{{ order_form.count }}</div>
+                                        <div style="float:right; margin-top: -18px;">{{ order_form.count }}</div>
                                         <!-- Start Product Apctpxion  -->
                                          <ul class="product-action d-flex-center mb--0">
                                             <li class="add-to-cart"><button class="axil-btn btn-bg-primary">افزودن به سبد خرید</button></li>
@@ -117,7 +114,7 @@
 
                                                     {% if request.user.is_authenticated %}
                                                         {% if object in request.user.favorits.all %}
-                                            <li class="wishlist"><a href="{% url 'malile_khosh_kam:malile-favorites' malile.id %}"
+                                                    <li class="wishlist"><a href="{% url 'malile_khosh_kam:malile-favorites' malile.id %}"
                                                     class="axil-btn wishlist-btn" style="background-color: var(--color-primary);"><i class="far fa-heart"></i></a></li>
                                                     {%  else %}
                                                     <li class="wishlist"><a href="{% url 'malile_khosh_kam:malile-favorites' malile.id %}"

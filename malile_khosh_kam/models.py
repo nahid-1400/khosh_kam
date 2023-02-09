@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django.db.models import Q
 
 
 class CateGoryManager(models.Manager):
@@ -49,6 +50,12 @@ class MalileManager(models.Manager):
 
     def published_malile(self):
         return self.filter(status='p')
+
+    def filter_query(self, query):
+        lookup = (
+                Q(category__slug=query)
+            )
+        return self.get_queryset().filter(lookup, status='p').distinct()
 
 
 

@@ -34,12 +34,32 @@ class AllMalile(ListView):
     template_name = 'malile_khosh_kom/all_maliles_search_category.html'
 
     def get_queryset(self):
+        request = self.request
         return Malile.objects.published_malile()
     
     def get_context_data(self):
+        category = CateGory.objects.category_active()
         context = super().get_context_data()
         context['request'] = self.request
+        context['category'] = category
+        context['end_malile'] = Malile.objects.published_malile()
+        context['old_malile'] = Malile.objects.published_malile().order_by('-id')
+        context['cheapest_malile'] = Malile.objects.published_malile().order_by('-price')
+        context['expensive_malile'] = Malile.objects.published_malile().order_by('price')
+
         return context
+
+def filter(request):
+    context = {}
+    if request.method == 'POST':
+        cat_chekck =request.POST.getlist('cat_chekck')
+        print(cat_chekck)
+        min = request.POST.get('min')
+        max = request.POST.get('max')
+        print(min, max)
+        context['object_list'] = Malile.objects.filter(category__slug__in=cat_chekck, price__range=(int(min), int(max)))
+
+    return render(request, 'malile_khosh_kom/all_maliles_search_category.html', context)
 
 
 class MalileSearch(ListView):
@@ -49,6 +69,7 @@ class MalileSearch(ListView):
     def get_queryset(self):
         global q
         q = self.request.GET.get('q')
+
         return Malile.objects.filter(Q(title__icontains=q)|Q(descriptions__icontains=q))
 
 
@@ -58,6 +79,7 @@ class MalileSearch(ListView):
         context['q'] = q
         context['all_malile'] = all_malile
         context['request'] = self.request
+        
         return context
 
 class MalileCateGory(ListView):
